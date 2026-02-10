@@ -1,0 +1,83 @@
+<div id="section-reports" class="content-section">
+    <div class="page-header">
+        <h1>Reports & Analytics</h1>
+        <p>Generate system reports, attendance summaries, and insights</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="card stat-card revenue-main">
+            <div class="stat-content">
+                <p class="lbl">Revenue</p>
+                <h2 class="val green">₱286,750.0</h2>
+                <p class="sub">+ 5.1% this month revenue</p>
+            </div>
+            <div class="stat-icon-box">
+                <i class='bx bx-trending-up'></i>
+            </div>
+        </div>
+
+        <div class="card stat-card mini-stat">
+            <div class="stat-content">
+                <h2 class="val green">128</h2>
+                <p class="lbl">Total Event</p>
+            </div>
+            <div class="stat-icon-box mini">
+                <i class='bx bx-calendar'></i>
+            </div>
+        </div>
+
+        <div class="card stat-card mini-stat">
+            <div class="stat-content">
+                <h2 class="val green">650</h2>
+                <p class="lbl">Total Users</p>
+            </div>
+            <div class="stat-icon-box mini">
+                <i class='bx bx-user'></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="split-row">
+        <div class="card chart-card-wide">
+            <div class="card-header-flex">
+                <h3>Attendance Overview</h3>
+                <i class='bx bx-dots-horizontal-rounded'></i>
+            </div>
+            <div class="chart-container">
+                <canvas id="attendanceChart"></canvas>
+            </div>
+            <div class="chart-legend-bottom">
+                <div class="legend-item"><span class="dot seminar"></span> Seminar</div>
+                <div class="legend-item"><span class="dot summit"></span> Summit</div>
+                <div class="legend-item"><span class="dot other"></span> Other Events</div>
+            </div>
+        </div>
+
+        <div class="card chart-card-small">
+            <div class="card-header-flex">
+                <h3>Revenue / Pricing Summary</h3>
+                <i class='bx bx-dots-horizontal-rounded'></i>
+            </div>
+            <div class="chart-container">
+                <canvas id="revenueSummaryChart"></canvas>
+            </div>
+            <div class="chart-legend-grid">
+                <div class="legend-item"><span class="dot ticket"></span> Ticket sales</div>
+                <div class="legend-item"><span class="dot sponsor"></span> Sponsorship</div>
+                <div class="legend-item"><span class="dot other-rev"></span> Other</div>
+                <div class="legend-item"><span class="dot pricing"></span> Pricing</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card export-card">
+        <div class="export-text">
+            <h3>Export Reports</h3>
+            <p>Export your csv file users here.</p>
+        </div>
+        <div class="export-btns">
+            <button class="btn-export-purple"><i class='bx bxs-file-pdf'></i> Export PDF</button>
+            <button class="btn-export-teal"><i class='bx bxs-file-json'></i> Export CSV</button>
+        </div>
+    </div>
+</div>

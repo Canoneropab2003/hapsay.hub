@@ -1,0 +1,466 @@
+/* =========================================
+   1. CSS VARIABLES & RESET
+   ========================================= */
+:root {
+    --sidebar-bg: #9b69e4;       /* Main Sidebar Purple */
+    --main-bg: #e4dcf7;          /* Light Lavender Background */
+    --card-purple: #dcd0f9;      /* Chart Card Background */
+    --inner-purple: #f3effe;     /* Inner Boxes & Table Rows */
+    
+    /* Text Colors */
+    --text-green: #10b981;
+    --text-dark: #333;
+    --text-gray: #666;
+    --white: #ffffff;
+    
+    /* Button Colors */
+    --btn-teal: #81e2d6;         
+    --btn-hover-green: #10b981;  
+    --btn-hover-red: #ef4444;    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden; /* Default for desktop */
+    background-color: var(--main-bg);
+}
+
+.admin-wrapper {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* =========================================
+   2. SIDEBAR STYLING
+   ========================================= */
+.sidebar {
+    width: 290px;
+    background-color: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.branding { text-align: center; margin-bottom: 25px; }
+.main-logo { width: 140px; height: auto; }
+.logo-subtitle { font-size: 8px; letter-spacing: 2px; font-weight: bold; margin-top: 5px; opacity: 0.9; text-transform: uppercase; }
+
+.profile-box {
+    background-color: rgba(0,0,0,0.15);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+.profile-icon { font-size: 28px; }
+.profile-text h3 { font-size: 16px; font-weight: 600; }
+.profile-text p { font-size: 11px; opacity: 0.8; }
+
+/* Navigation */
+.sidebar-nav ul { list-style: none; }
+.sidebar-nav li {
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+}
+.sidebar-nav li.active { background-color: rgba(255,255,255,0.2); font-weight: 600; }
+.sidebar-nav li:hover { background-color: rgba(255,255,255,0.1); }
+.sidebar-nav i { font-size: 20px; }
+
+/* Footer Buttons */
+.sidebar-footer { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
+
+.btn-return, .btn-logout {
+    border: none; padding: 12px; border-radius: 12px;
+    color: white; font-weight: 700; cursor: pointer; font-size: 13px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+.btn-return { background: var(--btn-teal); color: white; }
+.btn-return:hover { background-color: var(--btn-hover-green); transform: translateY(-2px); }
+
+.btn-logout { background: white; color: var(--sidebar-bg); }
+.btn-logout:hover { background-color: var(--btn-hover-red); color: white; transform: translateY(-2px); }
+
+/* =========================================
+   3. MAIN WORKSPACE STYLING
+   ========================================= */
+.workspace {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    overflow-y: auto;
+    width: 100%; /* Ensure full width */
+}
+
+/* Top Floating Bar */
+.top-pill-bar {
+    background: white;
+    border-radius: 50px;
+    padding: 10px 30px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    margin-bottom: 30px;
+    min-height: 60px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 15px;
+}
+.pill-left { font-weight: 500; color: #555; font-size: 15px; }
+.pill-search {
+    display: flex; align-items: center; background: #f7f7f7;
+    padding: 8px 15px; border-radius: 20px; width: 40%; min-width: 300px;
+}
+.pill-search i { color: #999; font-size: 18px; }
+.pill-search input { border: none; background: transparent; width: 100%; outline: none; margin-left: 10px; color: #555; }
+.pill-right { font-size: 14px; color: #666; }
+.status-online { color: var(--text-green); font-weight: bold; }
+
+/* Dashboard Headers */
+.page-header { margin-bottom: 25px; }
+.page-header h1 { color: #444; font-size: 26px; font-weight: 600; }
+.page-header p { color: #777; font-size: 13px; margin-top: 5px; }
+
+/* Grid System */
+.stats-row { 
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 25px; 
+}
+.split-row {
+    display: grid; grid-template-columns: 1.2fr 1.5fr; gap: 25px; margin-bottom: 25px;
+}
+
+/* General Card Style */
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+/* Stats Cards */
+.stat-card { display: flex; flex-direction: column; justify-content: center; }
+.val { font-size: 28px; font-weight: bold; margin-bottom: 5px; word-break: break-all; }
+.val.green { color: var(--text-green); }
+.val.dark { color: #444; font-size: 22px; }
+.lbl { font-size: 13px; color: #888; }
+.lbl.green { color: var(--text-green); font-weight: 600; display: flex; align-items: center; gap: 5px; }
+
+/* =========================================
+   4. RECENT EVENTS SECTION
+   ========================================= */
+.events-card h3 { color: #444; font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+
+/* Inner Light Purple Box */
+.events-inner-box {
+    background-color: var(--inner-purple);
+    border-radius: 12px;
+    padding: 0 20px; 
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+}
+
+/* Grid Layout for Rows */
+.evt-row {
+    display: grid;
+    /* Columns: Name (flex), Date (fixed 130px), Badge (fixed 100px) */
+    grid-template-columns: 1fr 130px 100px; 
+    align-items: center;
+    padding: 16px 0; 
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    font-size: 13px; color: #444;
+}
+.evt-row:last-child { border-bottom: none; }
+
+.evt-name { font-weight: 600; color: #444; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.evt-date { color: #666; text-align: left; }
+
+/* Floating Button */
+.button-wrapper { display: flex; justify-content: flex-end; }
+.btn-view-all {
+    background: white; border: none; padding: 10px 24px; border-radius: 10px;
+    color: #9b69e4; font-weight: 700; cursor: pointer; font-size: 13px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: all 0.2s ease;
+}
+.btn-view-all:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
+
+/* Common Badge Styles */
+.badge { 
+    width: 90px; padding: 7px 0; border-radius: 20px; 
+    font-size: 11px; color: white; font-weight: 600; text-align: center; display: block;
+}
+.evt-row .badge { margin-left: auto; }
+
+.badge.active { background: #10b981; }    /* Green */
+.badge.upcoming { background: #82c8d6; }  /* Teal/Blue */
+.badge.draft { background: #d8b4fe; }     /* Soft Purple */
+.badge.gray { background: #888; }         /* Dark Gray */
+
+.badge.arrow { 
+    background: transparent; color: #666; font-size: 20px; width: auto; 
+    text-align: right; padding: 0; margin-right: 15px; margin-left: auto;
+}
+
+/* =========================================
+   5. 3D PIE CHART SECTION
+   ========================================= */
+.chart-card { background-color: var(--card-purple); box-shadow: 4px 4px 10px rgba(0,0,0,0.05); }
+.white-text { color: white; margin-bottom: 20px; font-size: 18px; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+.chart-flex { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+
+.pie-container { position: relative; width: 200px; height: 200px; flex-shrink: 0; }
+
+/* Layer 1: Shadow/Depth */
+.pie-side {
+    width: 100%; height: 100%; border-radius: 50%;
+    position: absolute; top: 12px; left: 0; z-index: 1;
+    background: conic-gradient(
+        #2b6cb0 0% 5.1%, #e57373 5.1% 15.9%, #ffa726 15.9% 26.7%, #80cbc4 26.7% 52.5%, #673ab7 52.5% 100%
+    );
+    filter: brightness(0.6); 
+}
+
+/* Layer 2: Main Face */
+.pie-face {
+    width: 100%; height: 100%; border-radius: 50%;
+    position: absolute; top: 0; left: 0; z-index: 2;
+    background: conic-gradient(
+        #2b6cb0 0% 5.1%,      /* Volunteer */
+        #e57373 5.1% 15.9%,   /* Viewer */
+        #ffa726 15.9% 26.7%,  /* Staff */
+        #80cbc4 26.7% 52.5%,  /* Organizer */
+        #673ab7 52.5% 100%    /* Admin */
+    );
+}
+
+/* Labels */
+.pct-label {
+    position: absolute; z-index: 3; color: white; font-size: 11px; font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.label-vol { top: 5px; right: 85px; font-size: 9px;} 
+.label-view { top: 35px; right: 40px; }  
+.label-staff { top: 85px; right: 25px; } 
+.label-org { bottom: 40px; right: 50px; } 
+.label-admin { top: 90px; left: 30px; font-size: 13px; } 
+
+/* Legend */
+.legend { list-style: none; }
+.legend li { font-size: 12px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: #444; font-weight: 500; }
+.dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.dot.blue { background: #2b6cb0; } 
+.dot.red { background: #e57373; } 
+.dot.orange { background: #ffa726; }
+.dot.teal { background: #80cbc4; } 
+.dot.purple { background: #673ab7; }
+
+/* =========================================
+   6. LOGS TABLE SECTION
+   ========================================= */
+.logs-card { 
+    padding: 25px; margin-bottom: 30px; 
+    background: white; border-radius: 18px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); 
+    /* Critical for mobile tables: */
+    overflow-x: auto;
+}
+
+.logs-header { 
+    display: flex; justify-content: space-between; margin-bottom: 20px; align-items: center; 
+}
+.logs-header h3 { color: #444; font-size: 18px; font-weight: 700; }
+.logs-header a { text-decoration: none; color: #444; font-size: 13px; font-weight: 600; display: flex; align-items: center; }
+
+.logs-table { 
+    width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; 
+    min-width: 600px; /* Force table to hold shape and scroll on mobile */
+}
+
+/* Table Head */
+.logs-table th { 
+    text-align: left; color: #666; font-weight: 700; 
+    padding: 15px 20px; border-bottom: 1px solid #eee; background: white;
+}
+
+/* Table Rows */
+.logs-table tbody tr {
+    background-color: var(--inner-purple); transition: background 0.2s;
+}
+.logs-table tbody tr:hover { background-color: #e8e4f8; }
+
+.logs-table td { 
+    padding: 18px 20px; color: #444; vertical-align: middle;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.logs-table tbody tr td:first-child { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.logs-table tbody tr td:last-child { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+
+.logs-table tbody tr:first-child td:first-child { border-top-left-radius: 10px; }
+.logs-table tbody tr:first-child td:last-child { border-top-right-radius: 10px; }
+.logs-table tbody tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+.logs-table tbody tr:last-child td:last-child { border-bottom-right-radius: 10px; }
+.logs-table tbody tr:last-child td { border-bottom: none; }
+
+.status-cell {
+    display: flex; justify-content: space-between; align-items: center; width: 100%;
+}
+.logs-table .badge { width: 80px; margin: 0; font-weight: 500; }
+
+/* =========================================
+   7. MODAL STYLES (Popup)
+   ========================================= */
+.modal-overlay {
+    display: none; 
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000;
+    justify-content: center; align-items: center;
+    backdrop-filter: blur(3px); 
+    padding: 20px; /* Prevent modal touching edges on mobile */
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 600px; 
+    max-width: 100%; /* Responsive width */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-header {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;
+}
+.modal-header h2 { font-size: 22px; color: #333; font-weight: 700; }
+
+.close-modal {
+    font-size: 28px; color: #666; cursor: pointer; transition: 0.2s;
+}
+.close-modal:hover { color: #ef4444; }
+
+.modal-body { max-height: 400px; overflow-y: auto; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content-section { animation: fadeIn 0.3s ease-in-out; }
+
+/* =========================================
+   8. RESPONSIVE MEDIA QUERIES (NEW SECTION)
+   ========================================= */
+
+/* --- Tablet / Smaller Laptops (Max Width 1024px) --- */
+@media screen and (max-width: 1024px) {
+    .sidebar { width: 220px; padding: 20px 15px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .split-row { grid-template-columns: 1fr; } /* Stack the 3D chart below events */
+}
+
+/* --- Mobile / Small Tablets (Max Width 768px) --- */
+@media screen and (max-width: 768px) {
+    body {
+        height: auto;
+        overflow-y: auto; /* Enable body scroll */
+    }
+
+    .admin-wrapper {
+        flex-direction: column; /* Stack Sidebar on top of Workspace */
+        height: auto;
+    }
+
+    /* Transform Sidebar into a Top Navigation Block */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        flex-direction: row; /* Horizontal layout */
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .branding { margin-bottom: 0; display: flex; align-items: center; gap: 10px; }
+    .main-logo { width: 100px; }
+    .logo-subtitle { display: none; } /* Hide small text */
+    
+    .profile-box { display: none; } /* Hide profile box on mobile to save space */
+    .sidebar-footer { display: none; } /* Hide footer buttons */
+
+    /* Scrollable Horizontal Nav Links */
+    .sidebar-nav {
+        width: 100%;
+        margin-top: 15px;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px; /* Space for scrollbar */
+    }
+    .sidebar-nav ul { display: flex; gap: 10px; }
+    .sidebar-nav li { margin-bottom: 0; padding: 8px 12px; font-size: 13px; }
+
+    /* Workspace Adjustments */
+    .workspace {
+        padding: 15px;
+        overflow-y: visible; /* Let body handle scroll */
+    }
+
+    /* Top Bar */
+    .top-pill-bar {
+        border-radius: 15px;
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+    }
+    .pill-search { width: 100%; min-width: unset; margin: 10px 0; }
+    .pill-right { width: 100%; display: flex; justify-content: space-between; }
+
+    /* Grid Adjustments */
+    .stats-row { grid-template-columns: 1fr; } /* 1 Column */
+    
+    /* Events List Mobile */
+    .evt-row {
+        grid-template-columns: 1fr; /* Stack everything */
+        gap: 5px;
+        position: relative;
+    }
+    .evt-date { font-size: 11px; }
+    .evt-row .badge { 
+        position: absolute; 
+        top: 16px; 
+        right: 0; 
+        margin: 0;
+    }
+
+    /* Logs Table Mobile */
+    .logs-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    
+    /* Modal */
+    .modal-content { padding: 20px; }
+}

@@ -1,0 +1,179 @@
+/* =========================================================================
+   REPORTS & ANALYTICS SCOPED STYLES
+   Ensures zero conflict with Overview or User Management sections
+   ========================================================================= */
+
+#section-reports {
+    padding: 10px 0;
+}
+
+/* --- 1. Top Stat Cards (Revenue & Totals) --- */
+#section-reports .stats-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+#section-reports .stat-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(155, 105, 228, 0.05); /* Soft purple tint */
+    transition: transform 0.3s ease;
+}
+
+#section-reports .revenue-main {
+    flex: 1.5; /* Matches the wider Revenue priority */
+    border-left: 6px solid #9b69e4;
+}
+
+#section-reports .mini-stat {
+    flex: 1;
+}
+
+#section-reports .val.green {
+    color: #10b981;
+    font-size: 30px;
+    font-weight: 800;
+    margin: 5px 0;
+}
+
+#section-reports .lbl {
+    font-weight: 600;
+    color: #444;
+    font-size: 15px;
+}
+
+#section-reports .sub {
+    font-size: 13px;
+    color: #888;
+    font-weight: 500;
+}
+
+#section-reports .stat-icon-box {
+    background: linear-gradient(135deg, #f3effe 0%, #e9e2ff 100%);
+    color: #9b69e4;
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+#section-reports .stat-icon-box.mini {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+}
+
+/* --- 2. Chart Layouts --- */
+#section-reports .split-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+#section-reports .chart-card-wide { flex: 1.8; }
+#section-reports .chart-card-small { flex: 1.2; }
+
+#section-reports .card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#section-reports .card-header-flex h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2d3748;
+}
+
+#section-reports .chart-container {
+    width: 100%;
+    height: 280px;
+    position: relative;
+}
+
+/* --- 3. Unique Legends --- */
+#section-reports .chart-legend-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+#section-reports .chart-legend-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+}
+
+#section-reports .legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+}
+
+#section-reports .dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Legend Specific Colors */
+#section-reports .dot.seminar { background: #9b69e4; }
+#section-reports .dot.summit { background: #fca5a5; }
+#section-reports .dot.other { background: #82c8d6; }
+#section-reports .dot.ticket { background: #818cf8; }
+#section-reports .dot.sponsor { background: #fca5a5; }
+#section-reports .dot.other-rev { background: #4fd1c5; }
+#section-reports .dot.pricing { background: #f6ad55; }
+
+/* --- 4. Export Bar (Horizontal) --- */
+#section-reports .export-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 45px !important;
+    background: #fff;
+    border-radius: 25px;
+    border: 1px solid rgba(155, 105, 228, 0.1);
+}
+
+#section-reports .export-btns {
+    display: flex;
+    gap: 15px;
+}
+
+#section-reports .btn-export-purple, 
+#section-reports .btn-export-teal {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#section-reports .btn-export-purple { background: #c7b1ff; color: #5c3bb0; }
+#section-reports .btn-export-teal { background: #82c8d6; color: #1e6370; }
+
+#section-reports .btn-export-purple:hover, 
+#section-reports .btn-export-teal:hover {
+    filter: brightness(0.95);
+    transform: scale(1.02);
+}

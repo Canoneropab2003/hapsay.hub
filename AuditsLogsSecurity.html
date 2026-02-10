@@ -1,0 +1,116 @@
+<div id="section-logs" class="content-section">
+    <div class="page-header">
+        <h1>Audits Logs & Security</h1>
+        <p>Review system logs & alerts</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="card stat-card security-summary">
+            <div class="stat-icon-wrapper logins-bg">
+                <i class='bx bx-log-in-circle'></i>
+            </div>
+            <div class="stat-text">
+                <span class="lbl">Logins</span>
+                <span class="val security-blue">325</span>
+            </div>
+        </div>
+
+        <div class="card stat-card security-summary">
+            <div class="stat-icon-wrapper alerts-bg">
+                <i class='bx bx-error-alt'></i>
+            </div>
+            <div class="stat-text">
+                <span class="lbl">Suspicious Alert</span>
+                <span class="val security-red">53</span>
+            </div>
+        </div>
+
+        <div class="log-controls">
+            <div class="control-search-pill">
+                <i class='bx bx-search'></i>
+                <input type="text" placeholder="Search logs...">
+            </div>
+            <button class="btn-control-outline">Date Range <i class='bx bx-chevron-down'></i></button>
+        </div>
+    </div>
+
+    <div class="split-row">
+        <div class="card logs-list-card">
+            <div class="card-header-flex">
+                <h3>Audits Logs</h3>
+            </div>
+            <div class="logs-table-wrapper">
+                <table class="audit-table">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>User</th>
+                            <th>Severity <i class='bx bx-chevron-down'></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Feb 20, 2026</td>
+                            <td>jefrey@gmail.com</td>
+                            <td><span class="badge info">Info <i class='bx bx-chevron-down'></i></span></td>
+                        </tr>
+                        <tr>
+                            <td>March 5, 2026</td>
+                            <td>autorclint@gmail.com</td>
+                            <td><span class="badge warning">Warning <i class='bx bx-chevron-down'></i></span></td>
+                        </tr>
+                        <tr>
+                            <td>Feb 10, 2026</td>
+                            <td>pabs@gmail.com</td>
+                            <td><span class="badge warning">Warning <i class='bx bx-chevron-down'></i></span></td>
+                        </tr>
+                        <tr>
+                            <td>March 1, 2026</td>
+                            <td>rodvincent@gmail.com</td>
+                            <td><span class="badge high">High <i class='bx bx-chevron-down'></i></span></td>
+                        </tr>
+                        <tr>
+                            <td>Feb 9, 2026</td>
+                            <td>james@gmail.com</td>
+                            <td><span class="badge info">Info <i class='bx bx-chevron-down'></i></span></td>
+                        </tr>
+                        <tr>
+                            <td>Feb 20, 2026</td>
+                            <td>curry@gmail.com</td>
+                            <td><span class="badge info">Info <i class='bx bx-chevron-down'></i></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-footer-actions">
+                <button class="btn-view-all-logs">View All <i class='bx bx-chevron-down'></i></button>
+            </div>
+        </div>
+
+        <div class="security-sidebar">
+            <div class="card alert-detail-card">
+                <h3>Security Alerts</h3>
+                <div class="alert-item">
+                    <h4>Multiple Failed Login Attempts Detected</h4>
+                    <p>January 26, 2026 multiple failed attempt from 35.67.244.18 when logging in an account</p>
+                </div>
+                <hr class="alert-divider">
+                <div class="alert-item">
+                    <h4>Suspicious IP Blocked</h4>
+                    <p>April 19, 2026 unauthorized Super Admin attempt from 34.67.244.18 which was blocked for security reasons</p>
+                </div>
+            </div>
+
+            <div class="card export-logs-card">
+                <div class="export-text">
+                    <h4>Export Logs</h4>
+                    <p>Export your file here.</p>
+                </div>
+                <div class="export-btns-compact">
+                    <button class="btn-export-purple-sm"><i class='bx bxs-download'></i> Export PDF</button>
+                    <button class="btn-export-teal-sm"><i class='bx bxs-download'></i> Export CSV</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

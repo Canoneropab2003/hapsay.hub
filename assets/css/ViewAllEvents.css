@@ -1,0 +1,99 @@
+/* =========================================
+    1. EVENTS GRID LAYOUT
+   ========================================= */
+/* Specific grid ratios for the 5-column Event layout */
+.events-header-row, 
+.event-data-row {
+    display: grid;
+    /* Ratios: Name(1.5), Category(1.2), Date(1.2), Registration(1), Status(140px) */
+    grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr 140px;
+    align-items: center;
+    padding: 16px 20px;
+}
+
+.events-header-row {
+    font-weight: 700;
+    color: #9b69e4;
+    font-size: 14px;
+}
+
+.event-data-row {
+    border-bottom: 1px solid rgba(155, 105, 228, 0.1);
+    font-size: 14px;
+    color: #444;
+}
+
+.event-data-row:last-child {
+    border-bottom: none;
+}
+
+/* =========================================
+    2. EVENT STATUS BADGES
+   ========================================= */
+/* Green for Active */
+.badge.active {
+    background: #10b981;
+    color: white;
+}
+
+/* Teal for Upcoming */
+.badge.upcoming {
+    background: #82c8d6;
+    color: white;
+}
+
+/* Light Purple for Archived */
+.badge.archived {
+    background: #c7b1ff;
+    color: white;
+}
+
+/* Add small spacing for the chevron icons inside badges */
+.badge i {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+/* =========================================
+    3. FOOTER & EXPORT ALIGNMENT
+   ========================================= */
+.list-footer-centered {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.btn-view-more {
+    background: white;
+    border: 1px solid #dcd0f9;
+    padding: 10px 25px;
+    border-radius: 10px;
+    color: #9b69e4;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.btn-view-more:hover {
+    background: #f8f5ff;
+}
+
+/* Export section remains horizontal */
+.export-card {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    background: white;
+    border-radius: 20px;
+}
+
+.export-btns {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}

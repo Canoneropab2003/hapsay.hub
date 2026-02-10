@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="image/Logohapsayhub.png">
+    <title>HapsayHub | Super Admin</title>
+    
+    <link rel="stylesheet" href="assets/css/superadmin.css">
+    <link rel="stylesheet" href="assets/css/ManageUsers&Roles.css">
+    <link rel="stylesheet" href="assets/css/ViewAllEvents.css">
+    <link rel="stylesheet" href="assets/css/ReportsAnalytics.css">
+    <link rel="stylesheet" href="assets/css/AuditsLogsSecurity.css">
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="admin-wrapper">
+        
+        <aside class="sidebar">
+            <div class="branding">
+                <img src="image/Logohapsayhub.png" alt="Hapsay Logo" class="main-logo">
+                <p class="logo-subtitle">EVENT MANAGEMENT SYSTEM</p>
+            </div>
+
+            <div class="profile-box">
+                <i class='bx bx-user profile-icon'></i>
+                <div class="profile-text">
+                    <h3>Super Admin</h3>
+                    <p>HapsayHub Control Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active" data-target="section-overview">
+                        <i class='bx bx-search-alt'></i> <span>System Overview</span>
+                    </li>
+                    <li data-target="section-users">
+                        <i class='bx bxs-user-account'></i> <span>Manage Users & Roles</span>
+                    </li>
+                    <li data-target="section-events">
+                        <i class='bx bx-calendar-check'></i> <span>View All Events</span>
+                    </li>
+                    <li data-target="section-reports">
+                        <i class='bx bx-file'></i> <span>Reports & Analytics</span>
+                    </li>
+                    <li data-target="section-logs">
+                        <i class='bx bx-shield-quarter'></i> <span>Audits Logs & Security</span>
+                    </li>
+                    <li data-target="section-config">
+                        <i class='bx bx-slider'></i> <span>System Configuration</span>
+                    </li>
+                    <li data-target="section-settings">
+                        <i class='bx bx-cog'></i> <span>Platform Settings & Branding</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-return">Return to Dashboard</button>
+                <button class="btn-logout">Logout</button>
+            </div>
+        </aside>
+
+        <main class="workspace">
+            
+            <div class="top-pill-bar">
+                <div class="pill-left" id="pageTitle">System Overview</div>
+                <div class="pill-search">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Search settings, users, events, logs...">
+                </div>
+                <div class="pill-right">
+                    System: <span class="status-online">Online</span>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                
+                <div id="section-overview" class="content-section active">
+                    <div class="page-header">
+                        <h1>System Overview</h1>
+                        <p>Stats & summaries of System Overview</p>
+                    </div>
+
+                    <div class="stats-row">
+                        <div class="card stat-card"><span class="val green">113</span><span class="lbl">Total Events</span></div>
+                        <div class="card stat-card"><span class="val green">630</span><span class="lbl">User</span></div>
+                        <div class="card stat-card"><span class="val green">₱520,750.00</span><span class="lbl sub">5.1% this month</span></div>
+                        <div class="card stat-card"><span class="val dark">Security Status</span><span class="lbl green"><i class='bx bxs-check-circle'></i> All Secure</span></div>
+                    </div>
+
+                    <div class="split-row">
+                        <div class="card events-card">
+                            <h3>Recent Events</h3>
+                            <div class="events-inner-box">
+                                <div class="evt-row"><span class="evt-name">Campus Seminar 2026</span><span class="evt-date">Feb 20, 2026</span><span class="badge active">Active</span></div>
+                                <div class="evt-row"><span class="evt-name">Tech Innovation Summit</span><span class="evt-date">Mar 05, 2026</span><span class="badge upcoming">Upcoming</span></div>
+                                <div class="evt-row"><span class="evt-name">Barangay Job Fair</span><span class="evt-date">March 12, 2026</span><span class="badge draft">Draft</span></div>
+                                <div class="evt-row"><span class="evt-name">Volunteer</span><span class="evt-date">Feb 22, 2026</span><span class="badge arrow"><i class='bx bx-chevron-right'></i></span></div>
+                            </div>
+                            <div class="button-wrapper">
+                                <button class="btn-view-all" id="openModalBtn">View All Events</button>
+                            </div>
+                        </div>
+
+                        <div class="card chart-card">
+                            <h3 class="white-text">User Overview</h3>
+                            <div class="chart-flex">
+                                <div class="pie-container">
+                                    <div class="pie-side"></div><div class="pie-face"></div>
+                                    <span class="pct-label label-admin">47.3%</span>
+                                    <span class="pct-label label-org">25.8%</span>
+                                    <span class="pct-label label-staff">10.8%</span>
+                                    <span class="pct-label label-view">10.8%</span>
+                                    <span class="pct-label label-vol">5.1%</span>
+                                </div>
+                                <ul class="legend">
+                                    <li><span class="dot blue"></span> Volunteer</li>
+                                    <li><span class="dot red"></span> Viewer (Reports Only)</li>
+                                    <li><span class="dot orange"></span> Event Staff/Scanner</li>
+                                    <li><span class="dot teal"></span> Event organizer</li>
+                                    <li><span class="dot purple"></span> Admin</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card logs-card">
+                        <div class="logs-header">
+                            <h3>Recent Activity Logs</h3>
+                            <a href="#" id="openLogsModalBtn">View All Logs <i class='bx bx-chevron-right'></i></a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="logs-table">
+                                <thead>
+                                    <tr><th>Timestamp</th><th>User</th><th>Activity</th><th>Status</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>2026-01-31</td><td>Super Admin</td><td>Juan Dela Cruz approved as Organizer</td><td><div class="status-cell"><span>ID #204</span><span class="badge active">Active</span></div></td></tr>
+                                    <tr><td>2026-01-15</td><td>Super Admin</td><td>Alex Reyes suspended</td><td><div class="status-cell"><span>ID #181</span><span class="badge upcoming">Upcoming</span></div></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="users-container" class="content-section"></div>
+                <div id="events-container" class="content-section"></div>
+                <div id="reports-container" class="content-section"></div>
+                <div id="logs-container" class="content-section"></div>
+
+            </div>
+        </main>
+    </div>
+
+    <div id="eventsModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header"><h2>Recent Events Summary</h2><i class='bx bx-x close-modal' id="closeModalBtn"></i></div>
+            <div class="modal-body events-inner-box">
+                <div class="evt-row"><span class="evt-name">Campus Seminar 2026</span><span class="evt-date">Feb 20, 2026</span><span class="badge active">Active</span></div>
+                <div class="evt-row"><span class="evt-name">Tech Innovation Summit</span><span class="evt-date">Mar 05, 2026</span><span class="badge upcoming">Upcoming</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="logsModal" class="modal-overlay">
+        <div class="modal-content logs-modal">
+            <div class="modal-header">
+                <h2>All Activity Logs</h2>
+                <i class='bx bx-x close-modal' id="closeLogsModalBtn"></i>
+            </div>
+            <div class="modal-body">
+                <div class="logs-list-header">
+                    <div>Timestamp</div><div>User</div><div>Activity Details</div><div>Reference / Status</div>
+                </div>
+                <div class="logs-inner-box">
+                    <div class="log-item-row">
+                        <div class="log-time">2026-01-31</div><div class="log-user">Super Admin</div><div class="log-detail">Juan Dela Cruz approved</div>
+                        <div class="log-status">
+                            <div class="status-pill-group"><span>ID #204</span><span class="badge active">Active</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
