@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. CONFIGURATION ---
-    // ✅ I have updated this with your NEW Client ID from the screenshot
+    // ✅ Updated with your specific Client ID
     const GOOGLE_CLIENT_ID = "430731112851-21fmtare4d688sfj4ipb3ohbddajuk1f.apps.googleusercontent.com";
     
-    // ⚠️ IMPORTANT: You still need to replace this with your Facebook App ID
+    // ⚠️ REPLACE THIS WITH YOUR REAL FACEBOOK APP ID
     const FB_APP_ID = "YOUR_FACEBOOK_APP_ID_HERE"; 
 
     let tokenClient;
@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendResetBtn = document.getElementById('send-reset-btn');
     const resetEmailInput = document.getElementById('reset-email');
 
+    // Open Modal
     if (forgotLink && forgotPopup) {
         forgotLink.addEventListener('click', (e) => {
             e.preventDefault();
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Close Modal Helper
     function closeResetModal() {
         if (forgotPopup) {
             forgotPopup.classList.remove('active');
@@ -64,8 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (closeForgotBtn) closeForgotBtn.addEventListener('click', closeResetModal);
+    // Close when clicking background overlay
     if (forgotPopup) forgotPopup.addEventListener('click', (e) => { if (e.target === forgotPopup) closeResetModal(); });
 
+    // Send Reset Link Action
     if (sendResetBtn) {
         sendResetBtn.addEventListener('click', () => {
             const email = resetEmailInput.value.trim();
@@ -89,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 4. TOGGLE VIEW & PASSWORD VISIBILITY ---
+    // --- 4. TOGGLE VIEW (LOGIN <-> REGISTER) ---
     const linkToRegister = document.getElementById('link-to-register');
     const linkToLogin = document.getElementById('link-to-login');
     const loginBox = document.getElementById('login-box');
@@ -111,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Toggle Password Eye Icons
+    // --- 5. PASSWORD VISIBILITY TOGGLE (EYE ICON) ---
     document.querySelectorAll('.toggle-password').forEach(icon => {
         icon.addEventListener('click', () => {
             const input = icon.parentElement.querySelector('input');
@@ -127,7 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 5. SOCIAL LOGIN HANDLERS ---
+    // --- 6. SOCIAL LOGIN HANDLERS ---
+    
+    // Facebook
     const fbBtn = document.getElementById('fb-login-btn');
     if (fbBtn) {
         fbBtn.addEventListener('click', () => {
@@ -143,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Google
     const googleBtn = document.getElementById('custom-google-btn');
     if (googleBtn) {
         googleBtn.addEventListener('click', () => {
@@ -162,31 +169,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- 6. MAIN LOGIN FORM ---
+    // --- 7. MAIN LOGIN FORM SUBMISSION ---
     const loginForm = document.querySelector('.login-form');
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
-            e.preventDefault(); 
+            e.preventDefault(); // Stop page reload
+
             const btn = document.querySelector('.login-btn');
             const originalText = btn.innerHTML;
             
+            // Show Loading
             btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Loading...';
             btn.style.opacity = "0.7";
             btn.disabled = true;
 
+            // Simulate API Call
             setTimeout(() => {
                 btn.innerHTML = originalText;
                 btn.style.opacity = "1";
                 btn.disabled = false;
+                
                 showToast("Login Successful! Redirecting...", "success");
+
+                // REDIRECT TO SUPERADMIN
                 setTimeout(() => {
                     window.location.href = "superadmin.html";
                 }, 1500); 
+
             }, 2000);
         });
     }
 
-    // --- 7. REGISTER FORM ---
+    // --- 8. REGISTER FORM SUBMISSION ---
     const registerForm = document.querySelector('.register-form');
     if (registerForm) {
         registerForm.addEventListener('submit', (e) => {
@@ -214,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 8. TOAST UTILITY ---
+    // --- 9. TOAST UTILITY ---
     function showToast(message, type = 'success') {
         let container = document.getElementById('toast-container');
         if (!container) {
