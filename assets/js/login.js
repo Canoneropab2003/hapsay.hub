@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. CONFIGURATION ---
-    const GOOGLE_CLIENT_ID = "430731112851-r0k1j8s3f94629lljiec0377tdojs9e6.apps.googleusercontent.com";
+    // ✅ I have updated this with your NEW Client ID from the screenshot
+    const GOOGLE_CLIENT_ID = "430731112851-21fmtare4d688sfj4ipb3ohbddajuk1f.apps.googleusercontent.com";
+    
+    // ⚠️ IMPORTANT: You still need to replace this with your Facebook App ID
     const FB_APP_ID = "YOUR_FACEBOOK_APP_ID_HERE"; 
 
     let tokenClient;
@@ -133,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(r.status==='connected') {
                     FB.api('/me', {fields:'name'}, (p)=> {
                         showToast(`Welcome ${p.name}! Redirecting...`, 'success');
-                        // Redirect for Facebook too
                         setTimeout(() => window.location.href = "superadmin.html", 1500);
                     }); 
                 }
@@ -154,41 +156,32 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(res => res.json())
             .then(userInfo => {
                 showToast(`Welcome back, ${userInfo.name}! Redirecting...`, "success");
-                // Redirect for Google too
                 setTimeout(() => window.location.href = "superadmin.html", 1500);
             })
             .catch(err => showToast("Google Login Failed", "error"));
         }
     }
 
-    // --- 6. MAIN LOGIN FORM (REDIRECT LOGIC HERE) ---
+    // --- 6. MAIN LOGIN FORM ---
     const loginForm = document.querySelector('.login-form');
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Stop page reload
-
+            e.preventDefault(); 
             const btn = document.querySelector('.login-btn');
             const originalText = btn.innerHTML;
             
-            // 1. Show Loading Spinner
             btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Loading...';
             btn.style.opacity = "0.7";
             btn.disabled = true;
 
-            // 2. Simulate API Call (2 Seconds)
             setTimeout(() => {
                 btn.innerHTML = originalText;
                 btn.style.opacity = "1";
                 btn.disabled = false;
-                
-                // 3. Show Success Toast
                 showToast("Login Successful! Redirecting...", "success");
-
-                // 4. REDIRECT TO SUPERADMIN.HTML
                 setTimeout(() => {
                     window.location.href = "superadmin.html";
-                }, 1500); // 1.5s delay so user sees the success message
-
+                }, 1500); 
             }, 2000);
         });
     }
