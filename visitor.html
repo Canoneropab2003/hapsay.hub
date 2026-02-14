@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <section class="hero-section">
+    <section class="hero-section" style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15)), url('image/background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <nav>
             <img src="image/logohapsaybackground.png" alt="Hapsay Logo" class="brand-logo">
             
@@ -24,27 +24,157 @@
             <h1>Instant Planning for Infinite Events.</h1>
             <p>Experience the most intuitive event engine on the web. With a streamlined interface designed for speed, you can launch your next event in minutes, not hours.</p>
             
-            <div class="search-bar" id="searchBar">
-                <div class="search-input-wrapper">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                    <input type="text" placeholder="Search events...." id="eventSearch">
+            <div class="search-bar-container">
+                <div class="search-bar" id="searchBar">
+                    <div class="search-input-wrapper">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" placeholder="Search events...." id="eventSearch">
+                    </div>
+                    <select class="category-dropdown">
+                        <option>All Category</option>
+                        <option>Technology</option>
+                        <option>Business</option>
+                        <option>Entertainment</option>
+                    </select>
                 </div>
-                <select class="category-dropdown">
-                    <option>All Category</option>
-                    <option>Technology</option>
-                    <option>Business</option>
-                    <option>Entertainment</option>
-                </select>
             </div>
         </div>
 
         <div class="scroll-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
             </svg>
+        </div>
+    </section>
+
+    <section class="upcoming-events-section">
+        <div class="events-header">
+            <h2>Upcoming Events</h2>
+            <span class="event-count-badge">6 events</span>
+        </div>
+
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=600" alt="Tech Summit">
+                    <span class="category-tag">Educational</span>
+                </div>
+                <div class="card-content">
+                    <h3>Tech Innovation Summit 2025</h3>
+                    <p>Join industry leaders for a day of insights into the latest technology trends and innovations shaping our future.</p>
+                    <div class="card-meta">
+                        <span>📍 Grand Convention Center, Hall A</span>
+                        <span>👥 158 spots left</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">Free</span>
+                        <a href="#" class="register-link">Register now <span class="arrow-circle">→</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=600" alt="Wedding Ceremony">
+                    <span class="category-tag">Social</span>
+                </div>
+                <div class="card-content">
+                    <h3>Wedding Ceremony</h3>
+                    <p>Celebrate a union of Justin & Selena at a beautiful outdoor ceremony.</p>
+                    <div class="card-meta">
+                        <span>📍 Panglao, Bohol</span>
+                        <span>📅 Saturday, January 21, 2025</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">Free</span>
+                        <a href="#" class="register-link">Register now <span class="arrow-circle">→</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&q=80&w=600" alt="Digital Marketing">
+                    <span class="category-tag">Educational</span>
+                </div>
+                <div class="card-content">
+                    <h3>Digital Marketing & Brand Strategy</h3>
+                    <p>Master the essentials of building a digital presence. This intensive session covers content pillars and SEO basics.</p>
+                    <div class="card-meta">
+                        <span>📍 University of Bohol, Conf. Room</span>
+                        <span>📅 Monday, January 25, 2025</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">RFS</span>
+                        <a href="#" class="register-link">Register now <span class="arrow-circle">→</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=600" alt="Leadership">
+                    <span class="category-tag">Community</span>
+                </div>
+                <div class="card-content">
+                    <h3>Leadership in the Digital Age</h3>
+                    <p>This seminar focuses on effective management in remote and hybrid environments fostering innovation.</p>
+                    <div class="card-meta">
+                        <span>📍 Metro Centre, Tagbilaran City</span>
+                        <span>📅 Tuesday, May 12, 2025</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">P399</span>
+                        <a href="#" class="register-link">Register now <span class="arrow-circle">→</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=600" alt="Neon Party">
+                    <span class="category-tag">Entertainment</span>
+                </div>
+                <div class="card-content">
+                    <h3>Ultimate Neon Foam Party</h3>
+                    <p>Get ready to get soaked! We're filling the dance floor with over 5,000 cubic feet of foam per minute.</p>
+                    <div class="card-meta">
+                        <span>📍 Alona Beach, Panglao Island</span>
+                        <span>👥 58 spots left</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">P599</span>
+                        <a href="#" class="register-link">Register now <span class="arrow-circle">→</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=600" alt="Executive Meeting">
+                    <span class="category-tag">Corporate</span>
+                </div>
+                <div class="card-content">
+                    <h3>Annual Executive Planning</h3>
+                    <p>This session combines rigorous strategic planning with the tranquil environment of Bohol.</p>
+                    <div class="card-meta">
+                        <span>📍 The Grand Ballroom, Henann Resort</span>
+                        <span>📅 Monday - Tuesday, June 8-9, 2025</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">RFM</span>
+                        <a href="#" class="register-link">Register now <span class="arrow-circle">→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="events-footer">
+            <div class="double-arrow">︾</div>
+            <p>Produced & Developed by CoCrab.dev</p>
         </div>
     </section>
 
