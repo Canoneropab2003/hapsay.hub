@@ -15,56 +15,96 @@
     align-items: center;
 }
 
+/* The Main Card Container - Centered to match your target image */
 #section-logs .security-summary {
     flex: 1;
     display: flex;
+    flex-direction: row; 
     align-items: center;
-    gap: 15px;
-    padding: 20px;
+    justify-content: center; /* Perfectly centers the group inside the white card */
+    padding: 30px 20px; 
     background: #fff;
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(155, 105, 228, 0.05);
+    gap: 15px; /* Space between Icon and Text */
 }
 
+/* The Icon Box - Background removed to match target design */
 #section-logs .stat-icon-wrapper {
-    width: 54px;
-    height: 54px;
-    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
+    font-size: 38px; /* Larger icon size */
+    background: transparent !important; /* Removes the square background */
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
 }
 
-#section-logs .logins-bg { background: #e0f2f1; color: #4db6ac; }
-#section-logs .alerts-bg { background: #fee2e2; color: #f87171; }
+#section-logs .logins-bg { color: #10b981; } /* Exact Green/Teal */
+#section-logs .alerts-bg { color: #f87171; } /* Exact Red */
 
+/* The Text Area ("Logins" + "325") */
 #section-logs .stat-text {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 12px; /* Space between the word and the number */
+    width: auto; /* Takes only the space it needs to stay centered */
 }
 
-#section-logs .lbl { font-weight: 600; color: #444; font-size: 14px; }
-#section-logs .val.security-blue { color: #4db6ac; font-size: 28px; font-weight: 800; }
-#section-logs .val.security-red { color: #f87171; font-size: 28px; font-weight: 800; }
+#section-logs .lbl { 
+    font-weight: 700; 
+    color: #4a5568; 
+    font-size: 20px; 
+    margin: 0; 
+    white-space: nowrap; /* Prevents "Suspicious Alert" from breaking into multiple lines */
+}
 
-/* Search and Date Filter Arrangement */
+#section-logs .val.security-blue,
+#section-logs .val.security-red {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0; 
+    white-space: nowrap; /* CRITICAL: Prevents numbers from stacking vertically */
+    line-height: 1;
+}
+
+#section-logs .val.security-blue { color: #10b981; }
+#section-logs .val.security-red { color: #f87171; }
+
+/* --- Search and Date Filter Arrangement (Nicer Look) --- */
 #section-logs .log-controls {
     flex: 2;
     display: flex;
-    gap: 12px;
+    gap: 16px;
     justify-content: flex-end;
+    align-items: center;
 }
 
 #section-logs .control-search-pill {
-    background: #fff;
-    border-radius: 30px;
-    padding: 10px 20px;
+    background: #ffffff;
+    border-radius: 50px;
+    padding: 12px 20px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     width: 300px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+#section-logs .control-search-pill:focus-within {
+    border-color: #c7b1ff; /* Hapsay purple focus ring */
+    box-shadow: 0 4px 15px rgba(155, 105, 228, 0.1);
+}
+
+#section-logs .control-search-pill i {
+    color: #a0aec0;
+    font-size: 18px;
 }
 
 #section-logs .control-search-pill input {
@@ -72,16 +112,39 @@
     outline: none;
     width: 100%;
     font-size: 14px;
+    color: #2d3748;
+    background: transparent;
+}
+
+#section-logs .control-search-pill input::placeholder {
+    color: #a0aec0;
 }
 
 #section-logs .btn-control-outline {
-    background: #fff;
+    background: #ffffff;
     border: 1px solid #e2e8f0;
-    padding: 10px 20px;
-    border-radius: 30px;
+    padding: 12px 24px;
+    border-radius: 50px;
     font-weight: 600;
     color: #4a5568;
+    font-size: 14px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: all 0.2s ease;
+}
+
+#section-logs .btn-control-outline:hover {
+    background: #f8f9fa;
+    border-color: #cbd5e0;
+    transform: translateY(-1px);
+}
+
+#section-logs .btn-control-outline i {
+    font-size: 18px;
+    color: #718096;
 }
 
 /* --- 2. Main Layout Arrangement --- */

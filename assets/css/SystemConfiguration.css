@@ -1,0 +1,164 @@
+/* =========================================================================
+   SYSTEM CONFIGURATION SCOPED STYLES
+   Ensures zero conflict with Analytics, Logs, or User sections
+   ========================================================================= */
+
+#section-config {
+    padding: 10px 0;
+}
+
+/* --- 1. Config Group Cards --- */
+#section-config .config-group-card {
+    background: #ffffff;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(155, 105, 228, 0.05);
+    overflow: hidden;
+    border: 1px solid rgba(155, 105, 228, 0.1);
+}
+
+/* --- 2. Group Header Styling --- */
+#section-config .group-header {
+    background: #f3effe; /* Light purple header background */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#section-config .group-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #4a5568;
+    margin: 0;
+}
+
+#section-config .btn-save-changes {
+    background: #c7b1ff; /* Branded light purple */
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#section-config .btn-save-changes:hover {
+    filter: brightness(0.95);
+    transform: translateY(-1px);
+}
+
+/* --- 3. Group Body & Input Layouts --- */
+#section-config .group-body {
+    padding: 30px;
+}
+
+#section-config .input-field-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#section-config .input-field-row:last-child {
+    margin-bottom: 0;
+}
+
+#section-config .input-field-row label {
+    width: 220px; /* Fixed width for label alignment */
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 15px;
+}
+
+/* --- 4. Form Elements Styling --- */
+#section-config .config-input,
+#section-config .config-select {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #2d3748;
+    width: 350px; /* Standardized width */
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#section-config .config-input:focus,
+#section-config .config-select:focus {
+    border-color: #c7b1ff;
+}
+
+#section-config .sm-input {
+    width: 120px; /* Specific width for Port */
+}
+
+/* Custom Select Wrapper */
+#section-config .select-wrapper {
+    position: relative;
+    width: 350px;
+}
+
+#section-config .select-wrapper i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #718096;
+}
+
+#section-config .config-select {
+    appearance: none;
+    width: 100%;
+}
+
+/* --- 5. Security Specific Layouts --- */
+#section-config .flex-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#section-config .checkbox-field-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#section-config .checkbox-field-row label {
+    width: 300px; /* Wider label for text-heavy settings */
+}
+
+#section-config .config-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #c7b1ff;
+}
+
+/* Allow Password Status Button */
+#section-config .btn-allow-password {
+    background: #b2ebf2; /* Light teal background */
+    color: #00796b; /* Dark teal text */
+    border: none;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(77, 182, 172, 0.2);
+}
+
+#section-config .btn-allow-password i {
+    font-size: 20px;
+}
+
+/* Grid Layout for Email Config */
+#section-config .grid-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}

@@ -1,0 +1,229 @@
+/* =========================================================================
+   PLATFORM SETTINGS & BRANDING SCOPED STYLES
+   Matches the purple-themed UI from the HapsayHub design
+   ========================================================================= */
+
+#section-settings {
+    padding: 10px 0;
+}
+
+/* --- 1. Top Row: Brand Colors & Fonts Layout --- */
+#section-settings .branding-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+#section-settings .branding-row .card {
+    flex: 1;
+    background: #B5A4F6; /* Soft Purple Background matches image */
+    border-radius: 24px;
+    padding: 30px;
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(154, 103, 217, 0.15);
+}
+
+#section-settings .branding-row h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+/* --- 2. Brand Colors Card Styling --- */
+#section-settings .color-palette-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+#section-settings .color-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#section-settings .color-swatch {
+    width: 65px;
+    height: 65px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#section-settings .color-code {
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+#section-settings .color-label {
+    font-size: 11px;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+/* --- 3. Fonts Card Styling --- */
+#section-settings .font-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#section-settings .font-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+#section-settings .font-name {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+#section-settings .font-usage {
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* Specific Font Families for Preview */
+#section-settings .header-font .font-name { font-family: 'Inter', sans-serif; }
+#section-settings .sub-font .font-name { font-family: sans-serif; /* Average Sans placeholder */ }
+#section-settings .body-font .font-name { font-family: sans-serif; /* Actor placeholder */ }
+
+
+/* --- 4. Dark Mode Settings Card --- */
+#section-settings .dark-mode-settings-card {
+    background: #E8EBF2; /* Light Gray Body Background */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* Purple Header Bar */
+#section-settings .dm-header {
+    background: #B5A4F6; /* Same purple as top cards */
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+}
+
+#section-settings .dm-title h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+#section-settings .dm-title p {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* Header Buttons */
+#section-settings .dm-actions {
+    display: flex;
+    gap: 15px;
+}
+
+#section-settings .btn-save-settings {
+    background: #86CFD0; /* Teal color from image */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s;
+}
+
+#section-settings .btn-reset-settings {
+    background: #E57373; /* Salmon/Red color from image */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s;
+}
+
+#section-settings .btn-save-settings:hover,
+#section-settings .btn-reset-settings:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+/* --- 5. Dark Mode Body & Inputs --- */
+#section-settings .dm-body {
+    padding: 30px 40px;
+    background: #F0F3F7; /* Very light gray */
+}
+
+#section-settings .dm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 80px; /* Wide gap between columns */
+    row-gap: 25px;
+}
+
+#section-settings .dm-input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#section-settings .dm-input-group label {
+    font-weight: 700;
+    color: #555555;
+    font-size: 15px;
+}
+
+/* Input + Button Wrapper */
+#section-settings .input-with-btn {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#section-settings .dm-input-group input {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 12px;
+    width: 120px;
+    outline: none;
+    text-align: center;
+    color: #888;
+}
+
+#section-settings .btn-add-color {
+    background: #AAB2BD; /* Grey square button */
+    color: #ffffff;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

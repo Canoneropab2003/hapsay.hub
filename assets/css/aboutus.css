@@ -1,0 +1,155 @@
+:root {
+    --bg-dark: #030303;
+    --accent-purple: #4c1d95;
+    --soft-purple: #6d28d9;
+}
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--bg-dark);
+    overflow-x: hidden;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- ANIMATED BACKGROUND --- */
+.bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: #000;
+    overflow: hidden;
+}
+
+.nebula {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px); /* Slightly lower blur for performance on mobile */
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.nebula-1 {
+    width: 40vw; /* Using vw for fluid scaling */
+    height: 40vw;
+    background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
+    top: -5%;
+    left: -5%;
+    animation: drift 15s ease-in-out infinite alternate;
+}
+
+.nebula-2 {
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, #2e1065 0%, transparent 70%);
+    bottom: -10%;
+    right: -5%;
+    animation: drift 20s ease-in-out infinite alternate-reverse;
+}
+
+.nebula-3 {
+    width: 30vw;
+    height: 30vw;
+    background: radial-gradient(circle, var(--soft-purple) 0%, transparent 70%);
+    top: 30%;
+    left: 10%;
+    opacity: 0.15;
+    animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(5vw, 2vh) scale(1.1); }
+    100% { transform: translate(-2vw, 5vh) scale(0.9); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.1; transform: scale(1); }
+    50% { opacity: 0.25; transform: scale(1.2); }
+}
+
+/* --- CONTENT ANIMATIONS --- */
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.delay-1 { animation-delay: 0.3s; }
+
+.logo-glow {
+    filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.2));
+    transition: all 0.6s ease;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-glow:hover {
+    filter: drop-shadow(0 0 35px rgba(139, 92, 246, 0.4));
+    transform: translateY(-5px);
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+
+/* Mobile Phones (up to 640px) */
+@media (max-width: 640px) {
+    .nebula { filter: blur(40px); opacity: 0.3; }
+    
+    .nebula-1 { width: 80vw; height: 80vw; }
+    .nebula-2 { width: 100vw; height: 100vw; }
+
+    h1 {
+        font-size: 2.5rem !important; /* Forces smaller heading on mobile */
+        text-align: center;
+    }
+
+    .logo-glow img {
+        max-width: 240px !important;
+    }
+
+    header {
+        display: flex;
+        flex-col: column;
+        align-items: center;
+    }
+
+    .tracking-\[0\.7em\] {
+        letter-spacing: 0.4em !important; /* Reduce spacing slightly for small screens */
+        font-size: 8px !important;
+    }
+
+    p {
+        text-align: center;
+        font-size: 0.85rem !important;
+    }
+
+    .border-t {
+        text-align: center;
+    }
+}
+
+/* Tablets (641px to 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+    h1 {
+        font-size: 3.5rem !important;
+    }
+    
+    .logo-glow img {
+        max-width: 320px !important;
+    }
+}
+
+/* High-DPI / Retain clarity on Large Screens */
+@media (min-width: 1536px) {
+    .max-w-7xl {
+        max-width: 90rem;
+    }
+}

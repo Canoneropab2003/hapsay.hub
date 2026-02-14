@@ -1,0 +1,89 @@
+<div id="section-config" class="content-section">
+    <div class="page-header">
+        <h1>System Configuration</h1>
+        <p>Configure system settings</p>
+    </div>
+
+    <div class="config-group-card">
+        <div class="group-header">
+            <h3>General Settings</h3>
+            <button class="btn-save-changes">Save changes</button>
+        </div>
+        <div class="group-body">
+            <div class="input-field-row">
+                <label>System Name:</label>
+                <input type="text" value="HapsayHub" class="config-input">
+            </div>
+            <div class="input-field-row">
+                <label>Timezone:</label>
+                <div class="select-wrapper">
+                    <select class="config-select">
+                        <option>Asia/Manila</option>
+                        <option>UTC</option>
+                    </select>
+                    <i class='bx bx-chevron-down'></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="config-group-card">
+        <div class="group-header">
+            <h3>Security Settings</h3>
+            <button class="btn-save-changes">Save changes</button>
+        </div>
+        <div class="group-body flex-body">
+            <div class="checkbox-column">
+                <div class="checkbox-field-row">
+                    <label>Enable Two-Factor Authentication</label>
+                    <input type="checkbox" class="config-checkbox">
+                </div>
+                <div class="checkbox-field-row">
+                    <label>Allow Password Resets</label>
+                    <input type="checkbox" class="config-checkbox">
+                </div>
+            </div>
+            <div class="security-action-box">
+                <button class="btn-allow-password">
+                    <i class='bx bx-check-circle'></i> Allow password
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="config-group-card">
+        <div class="group-header">
+            <h3>Email Configuration</h3>
+            <button class="btn-save-changes">Save changes</button>
+        </div>
+        <div class="group-body grid-body">
+            <div class="input-field-row">
+                <label>SMTP Server:</label>
+                <input type="email" value="hapsayhub@gmail.com" class="config-input">
+            </div>
+            <div class="input-field-row">
+                <label>Port:</label>
+                <input type="text" placeholder="587" class="config-input sm-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="config-group-card">
+        <div class="group-header">
+            <h3>Notifications</h3>
+            <button class="btn-save-changes">Save changes</button>
+        </div>
+        <div class="group-body">
+            <div class="input-field-row">
+                <label>Send Alerts to:</label>
+                <div class="select-wrapper">
+                    <select class="config-select">
+                        <option>superadmin@gmail.com</option>
+                        <option>admin@gmail.com</option>
+                    </select>
+                    <i class='bx bx-chevron-down'></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
