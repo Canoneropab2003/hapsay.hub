@@ -1,3 +1,7 @@
+/* Hapsay - Visitor Style Sheet
+    Final Production Version: Full Responsiveness, Safari Compatibility, and Accessibility 
+*/
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -10,15 +14,21 @@ body, html {
     height: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    background-color: #f8f9fa;
 }
 
-/* Hero Section */
+/* --- Hero Section --- */
 .hero-section {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     color: white;
     position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15)), 
+                url('../../../image/background.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* Navigation */
@@ -26,7 +36,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 5%; /* Flexible padding */
+    padding: 30px 5%;
     width: 100%;
     z-index: 100;
 }
@@ -39,7 +49,7 @@ nav {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: clamp(15px, 3vw, 45px); /* Responsive gap */
+    gap: clamp(15px, 3vw, 45px);
 }
 
 .nav-link-item {
@@ -47,7 +57,7 @@ nav {
     text-decoration: none;
     font-size: 15px;
     font-weight: 500;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s_ease;
 }
 
 .nav-link-item:hover {
@@ -60,7 +70,7 @@ nav {
     font-weight: 600;
     text-decoration: none;
     white-space: nowrap;
-    transition: transform 0.2s;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .btn-join {
@@ -89,7 +99,7 @@ nav {
 }
 
 .content-wrapper h1 {
-    font-size: clamp(2rem, 8vw, 4.5rem); /* Scales based on screen width */
+    font-size: clamp(2.2rem, 8vw, 4.5rem);
     font-weight: 800;
     margin-bottom: 25px;
     letter-spacing: -1.8px;
@@ -134,6 +144,7 @@ nav {
     padding: 12px;
     font-size: 16px;
     color: #333;
+    background: transparent;
 }
 
 .category-dropdown {
@@ -146,9 +157,11 @@ nav {
     font-weight: 500;
     cursor: pointer;
     outline: none;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
-/* Upcoming Events Section */
+/* --- Upcoming Events Section --- */
 .upcoming-events-section {
     background-color: #E6E0F8;
     padding: 80px 5%;
@@ -160,7 +173,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 50px;
-    flex-wrap: wrap; /* Allow badge to wrap on tiny screens */
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -170,16 +183,25 @@ nav {
     color: #333;
 }
 
-/* Event Grid - Fully Responsive */
+.event-count-badge {
+    background: #9D7BEA;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Event Grid */
 .events-grid {
     display: grid;
-    /* This creates a grid that automatically decides column count based on card width */
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 30px;
 }
 
 .event-card {
     background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     border-radius: 30px;
     overflow: hidden;
@@ -187,6 +209,7 @@ nav {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .event-card:hover {
@@ -226,7 +249,7 @@ nav {
 }
 
 .card-content h3 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     margin-bottom: 12px;
     font-weight: 800;
     color: #222;
@@ -240,7 +263,7 @@ nav {
 }
 
 .card-meta {
-    margin-top: auto; /* Pushes meta and footer to bottom */
+    margin-top: auto;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -263,83 +286,87 @@ nav {
     color: #00c4a3;
 }
 
-/* Animations and Icons */
+.register-link {
+    text-decoration: none;
+    color: #9D7BEA;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease;
+}
+
+/* --- Section Footer & Arrow Fix --- */
+.events-footer {
+    text-align: center;
+    padding: 60px 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.double-arrow {
+    font-size: 24px;
+    color: #9D7BEA;
+    /* Updated to the bounceUp animation */
+    animation: bounceUp 2s infinite; 
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+.double-arrow:hover {
+    color: #00c4a3;
+}
+
+.events-footer p {
+    font-size: 14px;
+    color: #666;
+    letter-spacing: 0.5px;
+}
+
+/* --- Animations --- */
+
+/* For Hero Scroll (Down) */
 .scroll-icon {
     position: absolute;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    animation: bounce 2s infinite;
+    animation: bounceDown 2s infinite;
+    cursor: pointer;
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translate(-50%, 0);}
-    40% {transform: translate(-50%, -10px);}
-    60% {transform: translate(-50%, -5px);}
+/* For Footer Scroll (Up) */
+@keyframes bounceUp {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
 }
 
-/* --- RESPONSIVE MEDIA QUERIES --- */
+@keyframes bounceDown {
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, 10px); }
+    60% { transform: translate(-50%, 5px); }
+}
 
-/* Tablet & Smaller */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive Media Queries --- */
 @media (max-width: 992px) {
-    .events-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
+    .events-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 }
 
-/* Mobile Devices */
 @media (max-width: 768px) {
-    nav {
-        padding: 20px;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .nav-links {
-        gap: 15px;
-        /* Optional: hide text links on very small screens to keep buttons only */
-    }
-
-    .nav-link-item {
-        display: none; /* Hide 'Home' and 'About' to save space */
-    }
-
-    .search-bar {
-        flex-direction: column;
-        border-radius: 20px;
-        padding: 15px;
-    }
-
-    .category-dropdown {
-        border-left: none;
-        border-top: 1px solid #eee;
-        padding: 15px 0 5px 20px;
-        width: 100%;
-        text-align: left;
-    }
-
-    .content-wrapper {
-        transform: translateY(0);
-        padding-top: 20px;
-    }
-
-    .upcoming-events-section {
-        padding: 50px 20px;
-    }
-}
-
-/* Small Mobile */
-@media (max-width: 480px) {
-    .btn-join, .btn-signup {
-        padding: 10px 15px;
-        font-size: 13px;
-    }
-    
-    .price {
-        font-size: 1.2rem;
-    }
-    
-    .event-card {
-        border-radius: 20px;
-    }
+    nav { padding: 20px; flex-direction: column; gap: 20px; }
+    .nav-link-item { display: none; }
+    .search-bar { flex-direction: column; border-radius: 20px; padding: 15px; }
+    .category-dropdown { border-left: none; border-top: 1px solid #eee; padding: 15px 0 5px 20px; width: 100%; text-align: left; }
+    .upcoming-events-section { padding: 50px 20px; }
 }

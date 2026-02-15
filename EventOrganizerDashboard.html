@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="image/Logohapsayhub.png">
+    <title>HapsayHub | Event Organizer</title>
+    
+    <link rel="stylesheet" href="assets/css/superadmin.css">
+    
+    <link rel="stylesheet" href="assets/css/Event Organizer/EventOrganizer.css">
+    <link rel="stylesheet" href="assets/css/Event Organizer/CreateEditEvents.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="admin-wrapper">
+        
+        <aside class="sidebar">
+            <div class="branding">
+                <img src="image/Logohapsayhub.png" alt="Hapsay Logo" class="main-logo">
+                <p class="logo-subtitle">EVENT MANAGEMENT SYSTEM</p>
+            </div>
+
+            <div class="profile-box">
+                <i class='bx bx-user-pin profile-icon'></i>
+                <div class="profile-text">
+                    <h3>Event Organizer</h3>
+                    <p>HapsayHub Control Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active" data-target="dashboard-view">
+                        <i class='bx bxs-dashboard'></i> <span>Dashboard</span>
+                    </li>
+                    <li class="nav-item" data-target="create-edit-view">
+                        <i class='bx bx-layer-plus'></i> <span>Create / Edit Events</span>
+                    </li>
+                    <li class="nav-item" data-target="tickets-view">
+                        <i class='bx bxs-coupon'></i> <span>Manage Tickets & Capacity</span>
+                    </li>
+                    <li class="nav-item" data-target="staff-view">
+                        <i class='bx bx-user-plus'></i> <span>Assign Event Staff</span>
+                    </li>
+                    <li class="nav-item" data-target="attendance-view">
+                        <i class='bx bx-bar-chart-alt-2'></i> <span>Monitor Attendance</span>
+                    </li>
+                    <li class="nav-item" data-target="walkins-view">
+                        <i class='bx bx-walk'></i> <span>Handle Walk-ins</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-return">Return to Dashboard</button>
+                <button class="btn-logout">Logout</button>
+            </div>
+        </aside>
+
+        <main class="workspace">
+            
+            <div class="top-pill-bar">
+                <div class="pill-left">Dashboard</div>
+                <div class="pill-search">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Search events, staff, tickets, logs...">
+                </div>
+                <div class="pill-right">
+                    System: <span class="status-online">Online</span>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                
+                <div id="dashboard-view" class="content-section active">
+                    
+                    <div class="welcome-header">
+                        <h1>Welcome, Event Organizer!</h1>
+                        <p>Manage and monitor your events efficiently</p>
+                    </div>
+
+                    <div class="organizer-stats-row">
+                        <div class="organizer-stat-card">
+                            <div class="org-icon-box bg-purple-light">
+                                <i class='bx bx-calendar-star'></i>
+                            </div>
+                            <div class="org-stat-text">
+                                <h2>4</h2>
+                                <p>Upcoming<br>Events</p>
+                            </div>
+                        </div>
+
+                        <div class="organizer-stat-card">
+                            <div class="org-icon-box bg-purple-soft">
+                                <i class='bx bxs-group'></i>
+                            </div>
+                            <div class="org-stat-text">
+                                <h2>140</h2>
+                                <p>Upcoming<br>Events</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="organizer-split-row">
+                        <div class="upcoming-events-card">
+                            <div class="card-header-simple">
+                                <h3>Upcoming Events</h3>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="org-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Event Name</th>
+                                            <th>Category</th>
+                                            <th>Date</th>
+                                            <th>Registration</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tech Innovation Summit</td>
+                                            <td>Educational</td>
+                                            <td>January 10, 2026</td>
+                                            <td><button class="btn-reg-count"><i class='bx bx-grid-alt'></i> 480</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Local Community Workshop</td>
+                                            <td>Community</td>
+                                            <td>July 16, 2026</td>
+                                            <td><button class="btn-reg-count"><i class='bx bx-grid-alt'></i> 301</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Green Energy Conference</td>
+                                            <td>Community</td>
+                                            <td>September 15, 2026</td>
+                                            <td><button class="btn-reg-count"><i class='bx bx-grid-alt'></i> 209</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Youth Leadership Conference</td>
+                                            <td>Community</td>
+                                            <td>November 30, 2026</td>
+                                            <td><button class="btn-reg-count"><i class='bx bx-grid-alt'></i> 480</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="tips-card">
+                            <h3>Organizer Tips</h3>
+                            <div class="tips-content">
+                                <p>Use QR code scanners to expedite attendee check-in.</p>
+                                <a href="#" class="tips-link" id="triggerQrModal">Learn more ></a>
+                            </div>
+                            <div class="tips-illustration-box">
+                                <img src="image/scanqr-paymeny-ig5HiYcyOt.png" alt="Scan QR Illustration" class="qr-illustration">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions-wrapper">
+                        <div class="quick-actions-bar">
+                            <span>Quick Actions</span>
+                        </div>
+                        <div class="quick-actions-grid">
+                            <div class="action-card">
+                                <div class="action-icon"><i class='bx bx-layer-plus'></i></div>
+                                <div class="action-text">Create / Edit<br>Events</div>
+                            </div>
+                            <div class="action-card">
+                                <div class="action-icon"><i class='bx bxs-coupon'></i></div>
+                                <div class="action-text">Manage<br>Tickets &<br>Capacity</div>
+                            </div>
+                            <div class="action-card">
+                                <div class="action-icon"><i class='bx bxs-user-plus'></i></div>
+                                <div class="action-text">Assign<br>Event Staff</div>
+                            </div>
+                            <div class="action-card">
+                                <div class="action-icon"><i class='bx bx-bar-chart-alt-2'></i></div>
+                                <div class="action-text">Monitor<br>Attendance</div>
+                            </div>
+                            <div class="action-card">
+                                <div class="action-icon"><i class='bx bx-walk'></i></div>
+                                <div class="action-text">Handle<br>Walk-ins</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="qrInfoModal" class="qr-modal-overlay">
+                    <div class="qr-modal-content">
+                        <div class="qr-modal-header">
+                            <h2><i class='bx bx-qr-scan'></i> Using QR Check-in</h2>
+                            <i class='bx bx-x close-qr-modal' id="closeQrModalBtn"></i>
+                        </div>
+                        <div class="qr-modal-body">
+                            <p class="modal-intro">Expedite your event check-in process by using our integrated QR scanning feature.</p>
+                            <div class="step-guide">
+                                <div class="step-item">
+                                    <div class="step-number">1</div>
+                                    <div class="step-text">
+                                        <h4>Open Scanner</h4>
+                                        <p>Click the <strong>"Handle Walk-ins"</strong> or <strong>"Monitor Attendance"</strong> button.</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">2</div>
+                                    <div class="step-text">
+                                        <h4>Scan Ticket</h4>
+                                        <p>Point your device's camera at the attendee's QR code.</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">3</div>
+                                    <div class="step-text">
+                                        <h4>Verify & Check-in</h4>
+                                        <p>The system will instantly verify the ticket validity.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qr-modal-footer">
+                            <button class="btn-close-modal" id="closeQrModalBtnBottom">Got it</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="create-edit-view" class="content-section">
+                    
+                    <div class="page-header-simple">
+                        <h1>Create / Edit Events</h1>
+                        <p>Enter and edit event details</p>
+                    </div>
+
+                    <div class="event-tabs">
+                        <button type="button" class="tab-btn active" onclick="switchTab('details')">Event Details</button>
+                        <button type="button" class="tab-btn" onclick="switchTab('categories')">Event Categories</button>
+                    </div>
+
+                    <div class="form-card">
+                        <div id="tab-details" class="form-grid">
+                            <div class="form-col-left">
+                                <div class="input-group">
+                                    <label for="event-name">Event Name*</label>
+                                    <input type="text" id="event-name" value="Tech Innovation Summit" class="form-input" placeholder="Enter event name">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="event-desc">Event Description*</label>
+                                    <textarea id="event-desc" class="form-input" rows="3" placeholder="Describe your event"></textarea>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="event-dates">Event Dates*</label>
+                                    <div class="input-with-icon">
+                                        <input type="text" id="event-dates" value="March 12, 2026 - March 15, 2026" class="form-input" placeholder="Select dates">
+                                        <i class='bx bx-calendar' aria-hidden="true"></i>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="event-location">Event Location*</label>
+                                    <input type="text" id="event-location" class="form-input" placeholder="Enter location or 'Online'">
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn-save"><i class='bx bx-download'></i> Save Event</button>
+                                    <button type="button" class="btn-delete"><i class='bx bx-trash'></i> Delete Event</button>
+                                </div>
+                            </div>
+
+                            <div class="form-col-right">
+                                <div class="category-row">
+                                    <div class="input-group flex-grow">
+                                        <label for="event-category">Select category</label>
+                                        <select id="event-category" class="form-input" title="Select event category">
+                                            <option value="">All Category</option>
+                                            <option value="educational">Educational</option>
+                                            <option value="social">Social</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="btn-new-cat"><i class='bx bx-plus-circle'></i> New Category</button>
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Add Images</label>
+                                    <div class="image-upload-box">
+                                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Event Preview" class="preview-img">
+                                        <button type="button" class="btn-add-img"><i class='bx bx-plus'></i> Add Image</button>
+                                    </div>
+                                </div>
+
+                                <div class="event-tips-card">
+                                    <div class="tips-text">
+                                        <h4>Event Quick Tips</h4>
+                                        <p>Group events by category for easier organization.</p>
+                                        <a href="#">Learn more ></a>
+                                    </div>
+                                    <div class="tips-img-container">
+                                        <img src="image/Clip path group.png" alt="Tips illustration" onerror="this.style.display='none'"> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-categories" class="categories-list-view" style="display: none;">
+                            <p class="section-helper-text">Below are the categories used to group and classify events.</p>
+                            
+                            <div class="category-items-container">
+                                <div class="category-list-item">
+                                    <span class="category-label">Educational</span>
+                                    <div class="category-item-actions">
+                                        <button class="btn-inline-edit"><i class='bx bxs-edit-alt'></i> Edit</button>
+                                        <button class="btn-inline-delete"><i class='bx bx-trash'></i></button>
+                                    </div>
+                                </div>
+
+                                <div class="category-list-item">
+                                    <span class="category-label">Community</span>
+                                    <div class="category-item-actions">
+                                        <button class="btn-inline-edit"><i class='bx bxs-edit-alt'></i> Edit</button>
+                                        <button class="btn-inline-delete"><i class='bx bx-trash'></i></button>
+                                    </div>
+                                </div>
+
+                                <div class="category-list-item">
+                                    <span class="category-label">Social</span>
+                                    <div class="category-item-actions">
+                                        <button class="btn-inline-edit"><i class='bx bxs-edit-alt'></i> Edit</button>
+                                        <button class="btn-inline-delete"><i class='bx bx-trash'></i></button>
+                                    </div>
+                                </div>
+
+                                <div class="category-list-item">
+                                    <span class="category-label">Entertainment</span>
+                                    <div class="category-item-actions">
+                                        <button class="btn-inline-edit"><i class='bx bxs-edit-alt'></i> Edit</button>
+                                        <button class="btn-inline-delete"><i class='bx bx-trash'></i></button>
+                                    </div>
+                                </div>
+
+                                <div class="category-list-item">
+                                    <span class="category-label">Corporate</span>
+                                    <div class="category-item-actions">
+                                        <button class="btn-inline-edit"><i class='bx bxs-edit-alt'></i> Edit</button>
+                                        <button class="btn-inline-delete"><i class='bx bx-trash'></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn-create-category">
+                                <i class='bx bx-plus'></i> Create New Category
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="category-modal" class="modal-overlay">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="modal-title">Create New Category</h3>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group">
+                                <label for="modal-input-name">Category Name</label>
+                                <input type="text" id="modal-input-name" class="form-input" placeholder="e.g. Workshop">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-cancel">Cancel</button>
+                            <button id="btn-modal-save" class="btn-save">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="delete-modal" class="modal-overlay">
+                    <div class="modal-content modal-small">
+                        <div class="modal-body text-center">
+                            <i class='bx bx-error-circle' style="font-size: 3rem; color: #e57373;"></i>
+                            <h3>Are you sure?</h3>
+                            <p>You are about to delete the category: <strong id="delete-cat-name"></strong></p>
+                        </div>
+                        <div class="modal-footer justify-center">
+                            <button class="btn-cancel">Cancel</button>
+                            <button id="btn-confirm-delete" class="btn-delete">Yes, Delete</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tickets-view" class="content-section">
+                    <div class="welcome-header">
+                        <h1>Manage Tickets & Capacity</h1>
+                    </div>
+                    <p>Ticket management content goes here...</p>
+                </div>
+
+                <div id="staff-view" class="content-section">
+                    <div class="welcome-header"><h1>Assign Event Staff</h1></div>
+                    <p>Staff assignment content goes here...</p>
+                </div>
+
+                <div id="attendance-view" class="content-section">
+                    <div class="welcome-header"><h1>Monitor Attendance</h1></div>
+                    <p>Attendance monitoring charts goes here...</p>
+                </div>
+
+                <div id="walkins-view" class="content-section">
+                    <div class="welcome-header"><h1>Handle Walk-ins</h1></div>
+                    <p>Walk-in registration form goes here...</p>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+
+    <script src="assets/js/EventOrganizer.js"></script>
+    <script src="assets/js/CreateEditEvents.js"></script>
+
+</body>
+</html>

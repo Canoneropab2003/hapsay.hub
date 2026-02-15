@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="image/Logohapsayhub.png">
     <title>Hapsay - Instant Event Planning</title>
     <link rel="stylesheet" href="assets/css/visitor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <section class="hero-section" style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15)), url('image/background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <nav>
-            <img src="image/logohapsaybackground.png" alt="Hapsay Logo" class="brand-logo">
-            
-            <div class="nav-links">
-                <a href="#" class="nav-link-item">Home</a>
-                <a href="#" class="nav-link-item">About Us</a>
-                <a href="#" class="btn-join">Join Us</a>
-                <a href="#" class="btn-signup">Sign up</a>
-            </div>
-        </nav>
+    <section class="hero-section">
+        <header>
+            <nav>
+                <img src="image/logohapsaybackground.png" alt="Hapsay Logo" class="brand-logo">
+                
+                <div class="nav-links">
+                    <a href="#" class="nav-link-item">Home</a>
+                    <a href="#" class="nav-link-item">About Us</a>
+                    <a href="#" class="btn-join">Join Us</a>
+                    <a href="#" class="btn-signup">Sign up</a>
+                </div>
+            </nav>
+        </header>
 
         <div class="content-wrapper">
             <h1>Instant Planning for Infinite Events.</h1>
@@ -27,39 +31,40 @@
             <div class="search-bar-container">
                 <div class="search-bar" id="searchBar">
                     <div class="search-input-wrapper">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg>
-                        <input type="text" placeholder="Search events...." id="eventSearch">
+                        <input type="text" placeholder="Search events...." id="eventSearch" aria-label="Search events">
                     </div>
-                    <select class="category-dropdown">
-                        <option>All Category</option>
-                        <option>Technology</option>
-                        <option>Business</option>
-                        <option>Entertainment</option>
+                    
+                    <select class="category-dropdown" aria-label="Filter events by category">
+                        <option value="all">All Category</option>
+                        <option value="technology">Technology</option>
+                        <option value="business">Business</option>
+                        <option value="entertainment">Entertainment</option>
                     </select>
                 </div>
             </div>
         </div>
 
-        <div class="scroll-icon">
+        <div class="scroll-icon" aria-hidden="true">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
             </svg>
         </div>
     </section>
 
-    <section class="upcoming-events-section">
+    <main class="upcoming-events-section">
         <div class="events-header">
             <h2>Upcoming Events</h2>
             <span class="event-count-badge">6 events</span>
         </div>
 
         <div class="events-grid">
-            <div class="event-card">
+            <article class="event-card">
                 <div class="card-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=600" alt="Tech Summit">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=600" alt="Tech Innovation Summit Event">
                     <span class="category-tag">Educational</span>
                 </div>
                 <div class="card-content">
@@ -71,14 +76,14 @@
                     </div>
                     <div class="card-footer">
                         <span class="price">Free</span>
-                        <a href="#" class="register-link">Register now <span class="arrow-circle">→</span></a>
+                        <a href="#" class="register-link" aria-label="Register for Tech Innovation Summit">Register now <span class="arrow-circle" aria-hidden="true">→</span></a>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="event-card">
+            <article class="event-card">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=600" alt="Wedding Ceremony">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=600" alt="Wedding Ceremony Event">
                     <span class="category-tag">Social</span>
                 </div>
                 <div class="card-content">
@@ -90,94 +95,94 @@
                     </div>
                     <div class="card-footer">
                         <span class="price">Free</span>
-                        <a href="#" class="register-link">Register now <span class="arrow-circle">→</span></a>
+                        <a href="#" class="register-link" aria-label="Register for Wedding Ceremony">Register now <span class="arrow-circle" aria-hidden="true">→</span></a>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="event-card">
+            <article class="event-card">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&q=80&w=600" alt="Digital Marketing">
+                    <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&q=80&w=600" alt="Digital Marketing Event">
                     <span class="category-tag">Educational</span>
                 </div>
                 <div class="card-content">
                     <h3>Digital Marketing & Brand Strategy</h3>
-                    <p>Master the essentials of building a digital presence. This intensive session covers content pillars and SEO basics.</p>
+                    <p>Master the essentials of building a digital presence. This intensive session covers SEO basics.</p>
                     <div class="card-meta">
                         <span>📍 University of Bohol, Conf. Room</span>
                         <span>📅 Monday, January 25, 2025</span>
                     </div>
                     <div class="card-footer">
                         <span class="price">RFS</span>
-                        <a href="#" class="register-link">Register now <span class="arrow-circle">→</span></a>
+                        <a href="#" class="register-link" aria-label="Register for Digital Marketing">Register now <span class="arrow-circle" aria-hidden="true">→</span></a>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="event-card">
+            <article class="event-card">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=600" alt="Leadership">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=600" alt="Leadership Seminar Event">
                     <span class="category-tag">Community</span>
                 </div>
                 <div class="card-content">
                     <h3>Leadership in the Digital Age</h3>
-                    <p>This seminar focuses on effective management in remote and hybrid environments fostering innovation.</p>
+                    <p>Focuses on effective management in remote and hybrid environments fostering innovation.</p>
                     <div class="card-meta">
                         <span>📍 Metro Centre, Tagbilaran City</span>
                         <span>📅 Tuesday, May 12, 2025</span>
                     </div>
                     <div class="card-footer">
                         <span class="price">P399</span>
-                        <a href="#" class="register-link">Register now <span class="arrow-circle">→</span></a>
+                        <a href="#" class="register-link" aria-label="Register for Leadership Seminar">Register now <span class="arrow-circle" aria-hidden="true">→</span></a>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="event-card">
+            <article class="event-card">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=600" alt="Neon Party">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=600" alt="Foam Party Event">
                     <span class="category-tag">Entertainment</span>
                 </div>
                 <div class="card-content">
                     <h3>Ultimate Neon Foam Party</h3>
-                    <p>Get ready to get soaked! We're filling the dance floor with over 5,000 cubic feet of foam per minute.</p>
+                    <p>Get ready to get soaked! We're filling the dance floor with over 5,000 cubic feet of foam.</p>
                     <div class="card-meta">
                         <span>📍 Alona Beach, Panglao Island</span>
                         <span>👥 58 spots left</span>
                     </div>
                     <div class="card-footer">
                         <span class="price">P599</span>
-                        <a href="#" class="register-link">Register now <span class="arrow-circle">→</span></a>
+                        <a href="#" class="register-link" aria-label="Register for Foam Party">Register now <span class="arrow-circle" aria-hidden="true">→</span></a>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="event-card">
+            <article class="event-card">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=600" alt="Executive Meeting">
+                    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=600" alt="Executive Meeting Event">
                     <span class="category-tag">Corporate</span>
                 </div>
                 <div class="card-content">
                     <h3>Annual Executive Planning</h3>
-                    <p>This session combines rigorous strategic planning with the tranquil environment of Bohol.</p>
+                    <p>Strategic planning combined with the tranquil resort environment of Bohol.</p>
                     <div class="card-meta">
-                        <span>📍 The Grand Ballroom, Henann Resort</span>
-                        <span>📅 Monday - Tuesday, June 8-9, 2025</span>
+                        <span>📍 Henann Resort, Grand Ballroom</span>
+                        <span>📅 June 8-9, 2025</span>
                     </div>
                     <div class="card-footer">
                         <span class="price">RFM</span>
-                        <a href="#" class="register-link">Register now <span class="arrow-circle">→</span></a>
+                        <a href="#" class="register-link" aria-label="Register for Executive Planning">Register now <span class="arrow-circle" aria-hidden="true">→</span></a>
                     </div>
                 </div>
-            </div>
+            </article>
         </div>
 
-        <div class="events-footer">
-            <div class="double-arrow">︾</div>
-            <p>Produced & Developed by CoCrab.dev</p>
-        </div>
-    </section>
+        <footer class="events-footer">
+            <div class="double-arrow" id="backToTop" aria-hidden="true" style="cursor: pointer;">︽</div>
+            <p>Produced & Developed by <strong>CoCrab.dev</strong></p>
+        </footer>
+    </main>
 
-    <script src="script.js"></script>
+    <script src="assets/js/visitor.js"></script>
 </body>
 </html>

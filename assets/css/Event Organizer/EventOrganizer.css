@@ -1,0 +1,582 @@
+/* =========================================================================
+    EVENT ORGANIZER DASHBOARD STYLES
+    Core layout, sidebar, dashboard widgets, and modal
+   ========================================================================= */
+
+/* --- Navigation Content Switching (REQUIRED for JS to work) --- */
+.content-section {
+    display: none; /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.content-section.active {
+    display: block; /* Visible when active */
+    opacity: 1;
+    animation: fadeInUp 0.5s ease-out forwards; /* Entrance animation */
+}
+
+/* --- Layout Tweaks for Organizer Sidebar --- */
+.sidebar .btn-return {
+    background: #4A306D; /* Deep purple */
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.sidebar .btn-logout {
+    background: #C0564B; /* Terracotta/Redish Brown */
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Sidebar Navigation Pointer */
+.sidebar-nav ul li {
+    cursor: pointer;
+}
+
+/* --- 1. Welcome Header --- */
+.welcome-header {
+    margin-bottom: 25px;
+}
+.welcome-header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #4a5568;
+    margin-bottom: 4px;
+}
+.welcome-header p {
+    color: #718096;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* --- 2. Stats Row --- */
+.organizer-stats-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.organizer-stat-card {
+    flex: 1;
+    min-width: 250px; /* Prevents cards from getting too thin */
+    background: #fff;
+    border-radius: 24px;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+}
+
+.org-icon-box {
+    width: 70px;
+    height: 70px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    flex-shrink: 0; /* Prevents icon from shrinking */
+}
+
+.bg-purple-light { background: #E0D4FC; color: #9F7AEA; } 
+.bg-purple-soft { background: #E0D4FC; color: #9F7AEA; } 
+
+.org-stat-text h2 {
+    font-size: 48px;
+    font-weight: 800;
+    color: #4a5568;
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+.org-stat-text p {
+    font-size: 16px;
+    font-weight: 700;
+    color: #4a5568;
+    line-height: 1.2;
+    margin-top: 5px;
+}
+
+/* --- 3. Split Row (Table & Tips) --- */
+.organizer-split-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Key for responsiveness */
+}
+
+/* Table Card */
+.upcoming-events-card {
+    flex: 2.2;
+    min-width: 300px; /* Ensures table doesn't break on resize */
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    border: 1px solid #f0f0f0;
+    overflow-x: auto; /* Adds horizontal scroll for table on mobile */
+}
+
+.card-header-simple h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #4a5568;
+    margin-bottom: 15px;
+    padding-left: 5px;
+}
+
+.org-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px; /* Forces scroll if screen is too narrow */
+}
+
+.org-table th {
+    text-align: left;
+    background: #E2E8F0;
+    color: #4a5568;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 12px 15px;
+    border: 1px solid #CBD5E0;
+}
+
+.org-table td {
+    padding: 12px 15px;
+    border: 1px solid #E2E8F0;
+    color: #4a5568;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.btn-reg-count {
+    background: #A78BFA;
+    color: #fff;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    justify-content: center;
+    white-space: nowrap; /* Prevents text wrap inside button */
+}
+
+/* --- TIPS CARD (FIXED FOR HUGE IMAGE) --- */
+.tips-card {
+    flex: 0.8;
+    min-width: 280px; /* Ensures card doesn't vanish on wrap */
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px 25px 0 25px; /* No bottom padding so image sits flush */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    min-height: 400px; /* Ensures height consistency when stacked */
+    overflow: hidden; /* Clips the zoomed-in image edges */
+    position: relative;
+}
+
+.tips-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #4a5568;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.tips-content p {
+    font-size: 14px;
+    color: #718096;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.tips-link {
+    color: #4299E1;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* Illustration Box */
+.tips-illustration-box {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex: 1;
+    width: 100%;
+}
+
+/* QR Illustration - MAXIMIZED ZOOM & CENTERED */
+.qr-illustration {
+    width: 140%; /* 140% Width creates the Zoom effect */
+    max-width: unset;
+    height: auto;
+    display: block;
+    
+    /* Bulletproof Centering Logic */
+    position: relative;
+    left: 50%;
+    transform: translateX(-32%) translateY(5px); /* Centers & pushes down */
+    
+    margin-left: 0;
+    margin-bottom: -5px;
+}
+
+/* --- 4. Quick Actions --- */
+.quick-actions-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.quick-actions-bar {
+    background: #fff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+}
+
+.quick-actions-bar span {
+    font-weight: 700;
+    color: #4a5568;
+    font-size: 15px;
+}
+
+.quick-actions-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows buttons to wrap on mobile */
+}
+
+.action-card {
+    flex: 1;
+    min-width: 140px; /* Ensures buttons don't get too small */
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+}
+
+.action-icon {
+    font-size: 32px;
+    color: #4A306D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: #2D3748;
+    line-height: 1.2;
+}
+
+/* =========================================================================
+    5. PAGE RELOAD ANIMATIONS (ENTRANCE EFFECTS)
+   ========================================================================= */
+
+/* Define the Fade In Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation to content sections when they become active */
+.content-section.active .welcome-header,
+.content-section.active .organizer-stats-row,
+.content-section.active .organizer-split-row,
+.content-section.active .quick-actions-wrapper,
+.content-section.active .form-card {
+    opacity: 0; 
+    animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Stagger animations */
+.organizer-stats-row { animation-delay: 0.1s; }
+.organizer-split-row { animation-delay: 0.2s; }
+.quick-actions-wrapper { animation-delay: 0.3s; }
+
+
+/* =========================================================================
+    6. QR INFO MODAL STYLES
+   ========================================================================= */
+
+/* Overlay Background */
+.qr-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dim */
+    
+    /* FIX: Support for Safari and iOS Safari */
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    
+    /* Optional: Improves performance for filters on some browsers */
+    will-change: backdrop-filter;
+}
+
+/* Active State (Visible) */
+.qr-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Content Box */
+.qr-modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.qr-modal-overlay.active .qr-modal-content {
+    transform: translateY(0);
+}
+
+/* Header */
+.qr-modal-header {
+    background: #F8F9FC;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.qr-modal-header h2 {
+    font-size: 18px;
+    color: #4A306D;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.close-qr-modal {
+    font-size: 24px;
+    color: #a0aec0;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-qr-modal:hover {
+    color: #e53e3e;
+}
+
+/* Body */
+.qr-modal-body {
+    padding: 25px;
+}
+
+.modal-intro {
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Step Guide */
+.step-guide {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.step-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.step-number {
+    background: #E0D4FC;
+    color: #805AD5;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.step-text h4 {
+    font-size: 14px;
+    color: #2d3748;
+    margin: 0 0 4px 0;
+}
+
+.step-text p {
+    font-size: 13px;
+    color: #718096;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Note Box */
+.modal-note {
+    margin-top: 25px;
+    background: #FFFBEB; /* Light yellow warning bg */
+    border: 1px solid #FEEBC8;
+    color: #B7791F;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Footer */
+.qr-modal-footer {
+    padding: 15px 25px;
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+
+.btn-close-modal {
+    background: #4A306D;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-close-modal:hover {
+    background: #553C9A;
+}
+
+/* =========================================================================
+   7. MEDIA QUERIES (RESPONSIVENESS)
+   ========================================================================= */
+
+/* Tablet and Smaller Desktop (Max Width: 1024px) */
+@media screen and (max-width: 1024px) {
+    .organizer-split-row {
+        flex-direction: column; /* Stack Table and Tips vertically */
+    }
+
+    .upcoming-events-card, 
+    .tips-card {
+        flex: 1;
+        width: 100%;
+    }
+
+    .tips-card {
+        min-height: 350px; /* Reduced height for stacked view */
+    }
+
+    .organizer-stats-row {
+        flex-wrap: wrap;
+    }
+    
+    .organizer-stat-card {
+        min-width: 45%; /* Cards take up half width each */
+    }
+}
+
+/* Mobile Devices (Max Width: 768px) */
+@media screen and (max-width: 768px) {
+    .welcome-header h1 {
+        font-size: 22px;
+    }
+
+    .organizer-stats-row {
+        flex-direction: column;
+    }
+    
+    .organizer-stat-card {
+        width: 100%;
+    }
+
+    .quick-actions-grid {
+        gap: 15px;
+    }
+    
+    .action-card {
+        min-width: 45%; /* 2 buttons per row */
+        padding: 15px;
+        flex-direction: column; /* Icon on top, text below */
+        text-align: center;
+    }
+
+    .action-text {
+        font-size: 11px;
+    }
+
+    .action-icon {
+        font-size: 28px;
+    }
+
+    /* Reset QR Image for mobile so it doesn't zoom too much */
+    .qr-illustration {
+        width: 100%;
+        transform: none;
+        left: 0;
+    }
+}

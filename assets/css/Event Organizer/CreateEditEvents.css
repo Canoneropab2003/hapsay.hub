@@ -1,0 +1,493 @@
+/* ==========================================================================
+   1. MAIN VIEW & HEADER (Responsive)
+   ========================================================================== */
+#create-edit-view {
+    /* Responsive padding: smaller on mobile, larger on desktop */
+    padding: clamp(15px, 3vw, 25px);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: fadeIn 0.4s ease-in-out;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page-header-simple h1 {
+    font-size: clamp(1.5rem, 5vw, 1.8rem); /* Scales font size */
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.page-header-simple p {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+/* ==========================================================================
+   2. TAB NAVIGATION (Scrollable on Mobile)
+   ========================================================================== */
+.event-tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: -1px;
+    /* Allows tabs to be swiped horizontally on small screens */
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox */
+}
+
+.event-tabs::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.tab-btn {
+    padding: 12px clamp(15px, 4vw, 28px);
+    border: none;
+    background: #D1C4E9;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 12px 12px 0 0;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background: #fff;
+    color: #a389f4;
+}
+
+/* ==========================================================================
+   3. MAIN CARD & GRID (Responsive)
+   ========================================================================== */
+.form-card {
+    background: #fff;
+    border-radius: 0 20px 20px 20px;
+    padding: clamp(15px, 4vw, 30px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    min-height: 400px;
+}
+
+.form-grid {
+    display: grid;
+    /* Default: 2 columns. Media query below handles mobile. */
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+}
+
+/* ==========================================================================
+   4. CATEGORIES LIST VIEW
+   ========================================================================== */
+.section-helper-text {
+    color: #777;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+.category-items-container {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.category-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px clamp(10px, 3vw, 25px);
+    background: #fdfdfd;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s;
+    flex-wrap: wrap; /* Allows wrapping on tiny screens */
+    gap: 10px;
+}
+
+.category-list-item:last-child {
+    border-bottom: none;
+}
+
+.category-list-item:hover {
+    background: #f9f7ff;
+}
+
+.category-label {
+    font-weight: 600;
+    color: #444;
+    font-size: 1rem;
+    word-break: break-word; /* Prevents long text breaking layout */
+}
+
+.category-item-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.btn-inline-edit {
+    background-color: #A394E2;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.btn-inline-edit:hover {
+    background-color: #8e7cd1;
+    transform: translateY(-1px);
+}
+
+.btn-inline-delete {
+    background: white;
+    color: #A394E2;
+    border: 1px solid #eee;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.btn-inline-delete:hover {
+    color: #e57373;
+    border-color: #e57373;
+}
+
+.btn-create-category {
+    background-color: #B39DDB;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(179, 157, 219, 0.4);
+    transition: 0.3s;
+    width: fit-content;
+}
+
+.btn-create-category:hover {
+    background-color: #9575CD;
+}
+
+/* ==========================================================================
+   5. MODAL POP-UP STYLING
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    padding: 15px; /* Ensures modal doesn't touch screen edges on mobile */
+}
+
+.modal-content {
+    background: white;
+    padding: clamp(20px, 5vw, 30px);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    animation: modalSlideIn 0.3s ease-out;
+    box-sizing: border-box;
+}
+
+.modal-small {
+    max-width: 380px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #bbb;
+    line-height: 1;
+    padding: 5px; /* Bigger touch target */
+}
+
+.modal-footer {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn-cancel {
+    background: #f1f1f1;
+    color: #666;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-cancel:hover {
+    background: #e5e5e5;
+}
+
+.text-center { text-align: center; }
+
+/* ==========================================================================
+   6. EXISTING FORM & TIPS STYLING
+   ========================================================================== */
+.input-group { margin-bottom: 20px; }
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fcfcfc;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.3s ease;
+    box-sizing: border-box; /* Crucial for responsive width */
+}
+
+.form-input:focus { border-color: #a389f4; }
+
+.input-with-icon { position: relative; }
+
+.input-with-icon .bx {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a389f4;
+    font-size: 1.2rem;
+}
+
+.category-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allows button to drop below select on mobile */
+}
+
+.input-group.flex-grow {
+    flex-grow: 1;
+    min-width: 200px;
+}
+
+.btn-new-cat {
+    background-color: #bfaaff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 45px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.image-upload-box {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.preview-img { width: 100%; height: 100%; object-fit: cover; }
+
+.btn-add-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.9);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Allows stacking buttons on mobile */
+}
+
+.btn-save {
+    background-color: #83d0cb;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-delete {
+    background-color: #e57373;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.event-tips-card {
+    background-color: #f3f0ff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    gap: 15px;
+}
+
+.tips-text h4 { margin: 0 0 5px 0; color: #555; }
+.tips-text p { font-size: 0.85rem; color: #777; margin-bottom: 10px; max-width: 180px; }
+.tips-text a { color: #a389f4; text-decoration: none; font-weight: 600; }
+.tips-img-container img { height: 100px; }
+
+/* ==========================================================================
+   7. ANIMATIONS
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ==========================================================================
+   8. MEDIA QUERIES (Small Screen & Tablet Handling)
+   ========================================================================== */
+
+/* Tablet (max-width: 992px) */
+@media (max-width: 992px) {
+    .form-grid {
+        grid-template-columns: 1fr; /* Switch to single column */
+    }
+}
+
+/* Mobile (max-width: 576px) */
+@media (max-width: 576px) {
+    /* Main Padding Adjustments */
+    #create-edit-view {
+        padding: 15px;
+    }
+    
+    .form-card {
+        padding: 20px;
+    }
+
+    /* Stack Category List Items */
+    .category-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .category-item-actions {
+        width: 100%;
+        justify-content: flex-end; /* Align buttons right */
+    }
+
+    /* Make Buttons Full Width for easier tapping */
+    .form-actions button,
+    .modal-footer button,
+    .btn-create-category {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
+    /* Stack Tips Card */
+    .event-tips-card {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    
+    .tips-text p {
+        max-width: 100%;
+    }
+
+    .tips-img-container img {
+        height: 80px;
+        margin-bottom: 10px;
+    }
+    
+    /* Stack 'New Category' input row */
+    .category-row {
+        flex-direction: column;
+    }
+    
+    .btn-new-cat {
+        width: 100%;
+        justify-content: center;
+    }
+}
