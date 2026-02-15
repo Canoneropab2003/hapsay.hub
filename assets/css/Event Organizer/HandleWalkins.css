@@ -1,0 +1,265 @@
+/* --- Header Layout --- */
+.page-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 35px;
+    gap: 25px;
+}
+
+.header-banners-group {
+    display: flex;
+    gap: 20px;
+}
+
+/* --- Info Banner --- */
+.info-mini-banner {
+    background: #fff;
+    border-radius: 18px;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    height: 100px;
+    min-width: 320px;
+    border: 1px solid #f7f7f7;
+}
+
+.banner-content p {
+    font-size: 13px;
+    font-weight: 700;
+    color: #4A5568;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.banner-content a {
+    font-size: 12px;
+    color: #4299E1;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.banner-content a:hover {
+    color: #3182CE;
+}
+
+.banner-illustration {
+    position: relative;
+    width: 100px;
+    height: 100%;
+    margin-left: auto;
+}
+
+.user-img {
+    height: 95px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+
+/* Adjusted beam to align better with the device in the user's hand */
+.beam-img {
+    height: 30px;
+    position: absolute;
+    bottom: 48px;
+    right: 100px;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+/* --- Capacity Progress Card --- */
+.capacity-progress-card {
+    background: #fff;
+    border-radius: 18px;
+    min-width: 360px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    border: 1px solid #f7f7f7;
+}
+
+.capacity-progress-card .card-header {
+    background: #F1F5F9; /* Softer gray header */
+    padding: 12px 20px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.capacity-progress-card .card-body { padding: 18px 20px; }
+
+.capacity-text { 
+    font-size: 14px; 
+    color: #4A5568; 
+    font-weight: 700; 
+    margin-bottom: 12px; 
+}
+
+.progress-container { 
+    height: 10px; 
+    background: #E2E8F0; 
+    border-radius: 10px; 
+    margin: 12px 0; 
+}
+
+.progress-bar { 
+    height: 100%; 
+    background: #10B981; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.progress-footer { 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 13px; 
+    font-weight: 600; 
+    color: #718096; 
+}
+
+.view-reports { 
+    color: #4299E1; 
+    text-decoration: none; 
+    font-weight: 700;
+}
+
+/* --- Main Card & Table --- */
+.walkins-main-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+}
+
+.walkins-filter-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.search-combined { 
+    display: flex; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.search-combined input { 
+    min-width: 320px; 
+    border-radius: 12px 0 0 12px; 
+    border: 1px solid #E2E8F0;
+    border-right: none; 
+    padding: 12px 18px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-combined input:focus {
+    border-color: #B2A4FF;
+}
+
+.btn-enter { 
+    background: #B2A4FF; 
+    color: #fff; 
+    border: 1px solid #B2A4FF; 
+    padding: 0 28px; 
+    border-radius: 0 12px 12px 0; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: all 0.2s ease;
+}
+
+.btn-enter:hover {
+    background: #9a88ff;
+}
+
+.btn-add-walkin {
+    background: #B2A4FF;
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(178, 164, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-add-walkin:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(178, 164, 255, 0.5);
+    background: #9a88ff;
+}
+
+.walkins-table-wrapper { 
+    border-radius: 18px; 
+    overflow-x: auto; 
+    border: 1px solid #E2E8F0; 
+    background: #fff;
+}
+
+.walkins-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    text-align: left; 
+    min-width: 750px; 
+}
+
+.walkins-table thead tr { 
+    background: linear-gradient(90deg, #C299FF 0%, #B2A4FF 100%); 
+}
+
+.walkins-table th { 
+    padding: 20px; 
+    color: #fff; 
+    font-size: 13px; 
+    font-weight: 700;
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;
+}
+
+.walkins-table tr {
+    transition: background 0.2s ease;
+}
+
+.walkins-table tbody tr:hover {
+    background-color: #F8FAFC;
+}
+
+.walkins-table td { 
+    padding: 18px 20px; 
+    border-bottom: 1px solid #F1F5F9; 
+    color: #4A5568; 
+    font-size: 14px; 
+}
+
+.email-link { 
+    color: #4299E1; 
+    text-decoration: none; 
+    font-weight: 600;
+    cursor: pointer; 
+    transition: color 0.2s;
+}
+
+.email-link:hover {
+    color: #3182CE;
+    text-decoration: underline;
+}
+
+/* --- Responsive Media Queries --- */
+@media screen and (max-width: 1200px) {
+    .page-header-flex { flex-direction: column; gap: 20px; }
+    .header-banners-group { width: 100%; flex-direction: column; }
+    .info-mini-banner, .capacity-progress-card { min-width: 100%; }
+    .walkins-filter-row { flex-direction: column; align-items: stretch; gap: 20px; }
+    .btn-add-walkin { margin-left: 0; justify-content: center; width: 100%; }
+    .search-combined input { min-width: 0; flex: 1; }
+}

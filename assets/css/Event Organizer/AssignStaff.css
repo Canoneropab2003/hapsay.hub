@@ -1,0 +1,215 @@
+/* --- Staff Main Card --- */
+.staff-main-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    /* Increased shadow for more depth */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+}
+
+/* --- Header Row --- */
+.staff-header-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 25px;
+    margin-bottom: 35px;
+    flex-wrap: wrap; /* Better wrapping for tablet screens */
+}
+
+.staff-header-row label {
+    display: block;
+    font-weight: 700;
+    color: #4A5568;
+    margin-bottom: 10px;
+    font-size: 13px;
+    text-transform: uppercase; /* More professional look */
+    letter-spacing: 0.5px;
+}
+
+.static-input {
+    background: #F8FAFC; /* Slightly off-white for contrast */
+    border: 1px solid #E2E8F0;
+    padding: 12px 18px;
+    border-radius: 10px;
+    color: #4A5568;
+    font-size: 14px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.selection-input-group {
+    display: flex;
+    gap: 0; /* Combined look */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.selection-input-group input {
+    min-width: 350px;
+    border-radius: 10px 0 0 10px; /* Rounded only on left */
+    border-right: none;
+}
+
+/* --- Buttons --- */
+.btn-enter-action {
+    background: #B2A4FF;
+    color: #fff;
+    border: 1px solid #B2A4FF;
+    padding: 0 25px;
+    border-radius: 0 10px 10px 0; /* Rounded only on right */
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-enter-action:hover {
+    background: #9a88ff;
+}
+
+.btn-add-staff-action {
+    background: #B2A4FF;
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    cursor: pointer;
+    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(178, 164, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-add-staff-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(178, 164, 255, 0.5);
+    background: #9a88ff;
+}
+
+.btn-add-staff-action:active {
+    transform: translateY(0);
+}
+
+/* --- Staff Table --- */
+.staff-table-wrapper {
+    border-radius: 15px;
+    overflow-x: auto; /* Allow horizontal scroll on small screens */
+    border: 1px solid #E2E8F0;
+    background: #fff;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
+}
+
+.staff-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 800px; /* Ensures the table doesn't look squished on mobile */
+}
+
+.staff-table thead tr {
+    /* Gradient header for a more premium feel */
+    background: linear-gradient(90deg, #C299FF 0%, #B2A4FF 100%);
+}
+
+.staff-table th {
+    padding: 18px 20px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.staff-table tr {
+    transition: background 0.2s;
+}
+
+.staff-table tbody tr:hover {
+    background-color: #F8FAFC; /* Hover effect for rows */
+}
+
+.staff-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #EDF2F7;
+    color: #4A5568;
+    font-size: 14px;
+}
+
+.staff-name-cell { 
+    font-weight: 700; 
+    color: #2D3748;
+}
+
+.staff-email-cell { 
+    color: #4299E1; 
+    text-decoration: none; 
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.staff-email-cell:hover {
+    color: #3182CE;
+    text-decoration: underline;
+}
+
+/* --- Status Badges --- */
+.status-dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.status-dot.active { 
+    background-color: #10B981; 
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.status-dot.offline { 
+    background-color: #CBD5E0; /* Changed to gray for neutral offline look */
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* For Tablets and Smaller Laptops */
+@media screen and (max-width: 1100px) {
+    .staff-header-row { 
+        flex-direction: column; 
+        align-items: stretch; 
+        gap: 20px; 
+    }
+    .btn-add-staff-action { 
+        margin-left: 0; 
+        justify-content: center; 
+    }
+    .selection-input-group input { 
+        min-width: 0; 
+        flex: 1; 
+    }
+    .static-input { 
+        min-width: 0; 
+    }
+}
+
+/* For Mobile Screens */
+@media screen and (max-width: 600px) {
+    .staff-main-card {
+        padding: 15px; /* Reduce padding to save space */
+    }
+    
+    .page-header-simple h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn-add-staff-action {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .btn-enter-action {
+        padding: 0 15px;
+    }
+}

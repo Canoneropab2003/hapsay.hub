@@ -10,6 +10,10 @@
     
     <link rel="stylesheet" href="assets/css/Event Organizer/EventOrganizer.css">
     <link rel="stylesheet" href="assets/css/Event Organizer/CreateEditEvents.css">
+    <link rel="stylesheet" href="assets/css/Event Organizer/ManageTickets.css">
+    <link rel="stylesheet" href="assets/css/Event Organizer/AssignStaff.css">
+    <link rel="stylesheet" href="assets/css/Event Organizer/MonitorAttendance.css">
+    <link rel="stylesheet" href="assets/css/Event Organizer/HandleWalkins.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -391,25 +395,402 @@
                 </div>
 
                 <div id="tickets-view" class="content-section">
-                    <div class="welcome-header">
+                    
+                    <div class="page-header-simple">
                         <h1>Manage Tickets & Capacity</h1>
+                        <p>Set event capacity and manage ticket options</p>
                     </div>
-                    <p>Ticket management content goes here...</p>
+
+                    <div class="tickets-card">
+                        
+                        <div class="ticket-header-row">
+                            <div class="ticket-tab-active">Event Name</div>
+                            <div class="ticket-search-group">
+                                <input type="text" placeholder="Type Event Name..." class="form-input" aria-label="Search Event Name">
+                                
+                                <select class="form-input category-select" aria-label="Filter by Category">
+                                    <option>All Category</option>
+                                    <option>Educational</option>
+                                    <option>Social</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="ticket-grid">
+                            
+                            <div class="ticket-col-left">
+                                
+                                <div class="input-group">
+                                    <label>Capacity</label>
+                                    <div class="capacity-wrapper">
+                                        <input type="text" placeholder="Edit number of capacity..." class="form-input" aria-label="Event Capacity">
+                                        <div class="capacity-badge">230</div>
+                                        <i class='bx bxs-pencil edit-icon-floating'></i>
+                                    </div>
+                                </div>
+
+                                <div class="ticket-section-group">
+                                    <div class="toggle-header">
+                                        <span class="toggle-label">Free Tickets</span>
+                                        <label class="switch">
+                                            <input type="checkbox" checked aria-label="Toggle Free Tickets">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="ticket-type-card green-card">
+                                        <div class="card-top-strip">General Admission</div>
+                                        <div class="card-body-strip">
+                                            <span>Capacity: Always</span>
+                                            <span class="divider">|</span>
+                                            <span>Availability: 200 Remaining</span>
+                                            <button class="btn-card-edit"><i class='bx bxs-pencil'></i> Edit</button>
+                                        </div>
+                                    </div>
+                                    <button class="btn-add-ticket-type"><i class='bx bx-plus'></i> Add Free Ticket Type</button>
+                                </div>
+
+                                <div class="ticket-section-group">
+                                    <div class="toggle-header">
+                                        <span class="toggle-label">Paid Tickets</span>
+                                        <label class="switch">
+                                            <input type="checkbox" checked aria-label="Toggle Paid Tickets">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="ticket-type-card orange-card">
+                                        <div class="card-top-strip">VIP Pass</div>
+                                        <div class="card-body-strip">
+                                            <span>Capacity: Limited</span>
+                                            <span class="divider">|</span>
+                                            <span>Availability: 190 Remaining</span>
+                                            <button class="btn-card-edit"><i class='bx bxs-pencil'></i> Edit</button>
+                                        </div>
+                                    </div>
+                                    <button class="btn-add-ticket-type"><i class='bx bx-plus'></i> Add Paid Ticket Type</button>
+                                </div>
+
+                            </div>
+
+                            <div class="ticket-col-right">
+                                
+                                <div class="ticket-tips-card">
+                                    <div class="tips-img-circle">
+                                        <img src="image/discount-coupon-hiKOXTtJkn.png" alt="Coupon Icon" class="coupon-img">
+                                    </div>
+                                    <h4>Event Quick Tips</h4>
+                                    <p>Toggle paid tickets to start selling.</p>
+                                    <a href="#">Learn more ></a>
+                                </div>
+
+                                <div class="ticket-reports-card">
+                                    <h4>Ticket Reports:</h4>
+                                    <div class="report-row">
+                                        <span class="rep-label">Free Ticket Sum:</span>
+                                        <span class="rep-value">50</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="rep-label">Paid Ticket Sum:</span>
+                                        <span class="rep-value">125,000</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="rep-label">Total Ticket Reserved:</span>
+                                        <span class="rep-value">100</span>
+                                    </div>
+                                    <div class="report-footer">
+                                        <a href="#">View Reports ></a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
                 <div id="staff-view" class="content-section">
-                    <div class="welcome-header"><h1>Assign Event Staff</h1></div>
-                    <p>Staff assignment content goes here...</p>
+                    <div class="page-header-simple">
+                        <h1>Assign Event Staff</h1>
+                        <p>Manage assignments and add staff</p>
+                    </div>
+
+                    <div class="staff-main-card">
+                        <div class="staff-header-row">
+                            <div class="event-name-display">
+                                <label>Event Name</label>
+                                <div class="static-input">Tech Innovation Summit Seminar</div>
+                            </div>
+
+                            <div class="event-selection-box">
+                                <label>Select an Event</label>
+                                <div class="selection-input-group">
+                                    <input type="text" placeholder="Enter the event you want to see..." class="form-input">
+                                    <button class="btn-enter-action">Enter</button>
+                                </div>
+                            </div>
+
+                            <button class="btn-add-staff-action">
+                                <i class='bx bx-plus-circle'></i> Add Staff
+                            </button>
+                        </div>
+
+                        <div class="staff-table-wrapper">
+                            <table class="staff-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="staff-name-cell">Julian Thorne</td>
+                                        <td class="staff-email-cell">j.thorne@gmail.com</td>
+                                        <td>Event Staff</td>
+                                        <td><span class="status-dot active"></span> Active</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="staff-name-cell">Elena Vance</td>
+                                        <td class="staff-email-cell">evance.design@webmail.org</td>
+                                        <td>Event Staff</td>
+                                        <td><span class="status-dot offline"></span> Offline</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="staff-name-cell">Marcus Holloway</td>
+                                        <td class="staff-email-cell">mholloway88@provider.net</td>
+                                        <td>Scanner</td>
+                                        <td><span class="status-dot active"></span> Active</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="staff-name-cell">Sanae Tanaka</td>
+                                        <td class="staff-email-cell">stanaka@global-link.jp</td>
+                                        <td>Event Staff</td>
+                                        <td><span class="status-dot offline"></span> Offline</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="staff-name-cell">Leo Sterling</td>
+                                        <td class="staff-email-cell">sterling.leo@cloudspace.com</td>
+                                        <td>Event Staff</td>
+                                        <td><span class="status-dot offline"></span> Offline</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="staff-name-cell">Amara Okoro</td>
+                                        <td class="staff-email-cell">amara.okoro@freemail.co</td>
+                                        <td>Scanner</td>
+                                        <td><span class="status-dot active"></span> Active</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="attendance-view" class="content-section">
-                    <div class="welcome-header"><h1>Monitor Attendance</h1></div>
-                    <p>Attendance monitoring charts goes here...</p>
+                    <div class="page-header-flex">
+                        <div class="page-title-group">
+                            <h1>Monitor Attendance</h1>
+                            <p>Track attendee check-ins in real-time.</p>
+                        </div>
+                        
+                        <div class="scanner-setup-banner">
+                            <div class="banner-text">
+                                <p>Set-up scanners to track check-ins.</p>
+                                <a href="#">Learn more ></a>
+                            </div>
+                            <div class="banner-illustration">
+                                <img src="image/Clip path group (1).png" alt="Scan Beam" class="beam-img">
+                                <img src="image/Group.png" alt="Scanner User" class="user-img">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monitor-main-card">
+                        <div class="monitor-filter-row">
+                            <div class="filter-group">
+                                <label>Event Name</label>
+                                <div class="event-search-combined">
+                                    <input type="text" value="Tech Innovation Summit Seminar" readonly class="monitor-static-input">
+                                    <button class="btn-search-event">Search Event</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="monitor-grid">
+                            <div class="monitor-col-left">
+                                <div class="stat-cards-row">
+                                    <div class="attendance-stat-card">
+                                        <div class="stat-icon purple">
+                                            <i class='bx bx-spreadsheet'></i>
+                                        </div>
+                                        <div class="stat-details">
+                                            <span class="count">85</span>
+                                            <span class="label">Checked-in</span>
+                                        </div>
+                                    </div>
+                                    <div class="attendance-stat-card">
+                                        <div class="stat-icon blue">
+                                            <i class='bx bx-time-five'></i>
+                                        </div>
+                                        <div class="stat-details">
+                                            <span class="count">160</span>
+                                            <span class="label">Remaining</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chart-wrapper-card">
+                                    <canvas id="attendanceChart"></canvas>
+                                    <div class="custom-legend">
+                                        <div class="legend-item">
+                                            <span class="dot purple"></span> General Admission
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="dot orange"></span> VIP Pass
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="monitor-col-right">
+                                <div class="attendee-table-card">
+                                    <table class="attendance-list-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Attendee List</th>
+                                                <th>Ticket</th>
+                                                <th>User Role</th>
+                                                <th>Check-In Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Erica Santos</td>
+                                                <td class="ticket-tag">Gen Ad</td>
+                                                <td>Event Staff</td>
+                                                <td>8:26 am</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jason Reyes</td>
+                                                <td class="ticket-tag">VIP</td>
+                                                <td>Event Staff</td>
+                                                <td>9:10 am</td>
+                                            </tr>
+                                            <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                                            <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                                            <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="attendance-goal-card">
+                                    <div class="goal-header">Attendance Goals</div>
+                                    <div class="goal-body">
+                                        <p class="goal-target">Todays Goal: 200</p>
+                                        <div class="goal-progress-container">
+                                            <div class="goal-progress-bar" style="width: 42.5%;"></div>
+                                        </div>
+                                        <p class="goal-fraction">Progress: 85/200</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="walkins-view" class="content-section">
-                    <div class="welcome-header"><h1>Handle Walk-ins</h1></div>
-                    <p>Walk-in registration form goes here...</p>
+                    <div class="page-header-flex">
+                        <div class="page-title-group">
+                            <h1>Handle Walk-ins</h1>
+                            <p>Register and manage walk-in attendees.</p>
+                        </div>
+                        
+                        <div class="header-banners-group">
+                            <div class="info-mini-banner">
+                                <div class="banner-content">
+                                    <p>Send confirmation emails to walk-ins.</p>
+                                    <a href="#">Learn more ></a>
+                                </div>
+                                <div class="banner-illustration">
+                                    <img src="image/Clip path group (1).png" alt="Scan Beam" class="beam-img">
+                                    <img src="image/Group.png" alt="Scanner User" class="user-img">
+                                </div>
+                            </div>
+
+                            <div class="capacity-progress-card">
+                                <div class="card-header">Walk-In Capacity Progress</div>
+                                <div class="card-body">
+                                    <p class="capacity-text">Walk-In Capacity: 50</p>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" style="width: 4%;"></div>
+                                    </div>
+                                    <div class="progress-footer">
+                                        <span>Slots Used: 2</span>
+                                        <a href="#" class="view-reports">View Reports ></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="walkins-main-card">
+                        <div class="walkins-filter-row">
+                            <div class="filter-item">
+                                <label>Select an Event</label>
+                                <div class="search-combined">
+                                    <input type="text" placeholder="Enter the event you want to see..." class="form-input">
+                                    <button class="btn-enter">Enter</button>
+                                </div>
+                            </div>
+                            <div class="event-display-name">
+                                <p>Event Name: <strong>Tech Innovation Summit Seminar</strong></p>
+                            </div>
+                            <button class="btn-add-walkin">
+                                <i class='bx bx-plus-circle'></i> Add Walk-in
+                            </button>
+                        </div>
+
+                        <div class="walkins-table-wrapper">
+                            <table class="walkins-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Ticket Type</th>
+                                        <th>Check-In</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Julian Thorne</td>
+                                        <td class="email-link">j.thorne@gmail.com</td>
+                                        <td>VIP</td>
+                                        <td>10:04 AM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Elena Vance</td>
+                                        <td class="email-link">evance.design@webmail.org</td>
+                                        <td>VIP</td>
+                                        <td>11:11 AM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Marcus Holloway</td>
+                                        <td class="email-link">mholloway88@provider.net</td>
+                                        <td>Gen AD</td>
+                                        <td>9:10 AM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sanae Tanaka</td>
+                                        <td class="email-link">stanaka@global-link.jp</td>
+                                        <td>Gen AD</td>
+                                        <td>9:20 AM</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
             </div>

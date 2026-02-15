@@ -1,0 +1,316 @@
+/* =========================================================================
+   MONITOR ATTENDANCE STYLES (MonitorAttendance.css)
+   ========================================================================= */
+
+/* --- Header & Scanner Banner --- */
+.page-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    gap: 20px;
+}
+
+.scanner-setup-banner {
+    background: #fff;
+    border-radius: 15px;
+    padding: 10px 25px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: relative;
+    min-width: 420px;
+    height: 100px;
+    border: 1px solid #f0f0f0;
+}
+
+.banner-text p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4A5568;
+    margin: 0;
+}
+
+.banner-text a {
+    font-size: 13px;
+    color: #4299E1;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.banner-text a:hover {
+    color: #3182CE;
+}
+
+/* Banner Illustration Positioning */
+.banner-illustration {
+    position: relative;
+    height: 100%;
+    width: 130px;
+    margin-left: auto;
+}
+
+.user-img {
+    height: 110px;
+    position: absolute;
+    bottom: 10px;
+    right: 40px;
+    z-index: 2;
+}
+
+.beam-img {
+    height: 45px;
+    position: absolute;
+    bottom: 60px;
+    right: 150px;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+/* --- Main Card Layout --- */
+.monitor-main-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+}
+
+.monitor-filter-row {
+    margin-bottom: 30px;
+}
+
+.filter-group label {
+    display: block;
+    font-weight: 700;
+    color: #4A5568;
+    margin-bottom: 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.event-search-combined {
+    display: flex;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.monitor-static-input {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    padding: 12px 20px;
+    border-radius: 10px 0 0 10px;
+    flex: 1;
+    color: #4A5568;
+    font-weight: 600;
+    outline: none;
+}
+
+.btn-search-event {
+    background: #B2A4FF;
+    color: #fff;
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 10px 10px 0;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-search-event:hover {
+    background: #9a88ff;
+}
+
+/* --- Monitor Grid Layout --- */
+.monitor-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 30px;
+}
+
+/* --- Left Column: Stats & Chart --- */
+.stat-cards-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.attendance-stat-card {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #EDF2F7;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.2s;
+}
+
+.attendance-stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+}
+
+.stat-icon.purple { background: #F3EFFF; color: #B2A4FF; }
+.stat-icon.blue { background: #EBF8FF; color: #4299E1; }
+
+.stat-details .count {
+    display: block;
+    font-size: 32px;
+    font-weight: 800;
+    color: #2D3748;
+    line-height: 1.1;
+}
+
+.stat-details .label {
+    font-size: 13px;
+    color: #718096;
+    font-weight: 600;
+}
+
+/* Chart Card */
+.chart-wrapper-card {
+    background: #fff;
+    border: 1px solid #EDF2F7;
+    border-radius: 20px;
+    padding: 25px;
+    min-height: 350px;
+}
+
+.custom-legend {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.legend-item {
+    font-size: 12px;
+    font-weight: 600;
+    color: #718096;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.dot.purple { background: #B2A4FF; }
+.dot.orange { background: #F6AD55; }
+
+/* --- Right Column: List & Progress --- */
+.attendee-table-card {
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #E2E8F0;
+}
+
+.attendance-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.attendance-list-table th {
+    background: #F1F5F9;
+    padding: 12px 15px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #64748B;
+    letter-spacing: 0.05em;
+}
+
+.attendance-list-table td {
+    padding: 14px 15px;
+    font-size: 13px;
+    color: #4A5568;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.ticket-tag {
+    font-weight: 700;
+    color: #718096;
+}
+
+/* Attendance Goals Card */
+.attendance-goal-card {
+    background: #F8FAFC;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 25px;
+    border: 1px solid #EDF2F7;
+}
+
+.goal-header {
+    background: #F1F5F9;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+}
+
+.goal-body { padding: 20px; }
+
+.goal-target { font-weight: 600; color: #4A5568; margin-bottom: 10px; font-size: 14px; }
+
+.goal-progress-container {
+    height: 12px;
+    background: #E2E8F0;
+    border-radius: 6px;
+    margin: 15px 0;
+}
+
+.goal-progress-bar {
+    height: 100%;
+    background: #10B981;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.goal-fraction {
+    font-size: 13px;
+    color: #64748B;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* --- Responsive Adjustments --- */
+@media screen and (max-width: 1200px) {
+    .monitor-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-header-flex {
+        flex-direction: column;
+    }
+
+    .scanner-setup-banner {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .stat-cards-row {
+        flex-direction: column;
+    }
+    
+    .event-search-combined {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .monitor-static-input, .btn-search-event {
+        border-radius: 10px;
+        width: 100%;
+    }
+}
