@@ -185,6 +185,7 @@
     border-radius: 20px;
     padding: 25px;
     min-height: 350px;
+    overflow: hidden;
 }
 
 .custom-legend {
@@ -192,6 +193,7 @@
     justify-content: center;
     gap: 25px;
     margin-top: 20px;
+    flex-wrap: wrap; /* Added for mobile wrapping */
 }
 
 .legend-item {
@@ -210,14 +212,16 @@
 /* --- Right Column: List & Progress --- */
 .attendee-table-card {
     border-radius: 15px;
-    overflow: hidden;
+    overflow-x: auto; /* Added for mobile scrollability */
     border: 1px solid #E2E8F0;
+    background: #fff;
 }
 
 .attendance-list-table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
+    min-width: 400px; /* Ensures table headers stay legible */
 }
 
 .attendance-list-table th {
@@ -284,6 +288,8 @@
 }
 
 /* --- Responsive Adjustments --- */
+
+/* Laptops and Tablets */
 @media screen and (max-width: 1200px) {
     .monitor-grid {
         grid-template-columns: 1fr;
@@ -291,11 +297,32 @@
     
     .page-header-flex {
         flex-direction: column;
+        align-items: stretch;
     }
 
     .scanner-setup-banner {
         width: 100%;
         min-width: unset;
+        margin-top: 10px;
+    }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 768px) {
+    .monitor-main-card {
+        padding: 20px;
+    }
+
+    .stat-cards-row {
+        gap: 15px;
+    }
+
+    .attendance-stat-card {
+        padding: 15px;
+    }
+
+    .stat-details .count {
+        font-size: 24px;
     }
 }
 
@@ -307,10 +334,23 @@
     .event-search-combined {
         flex-direction: column;
         gap: 10px;
+        box-shadow: none;
     }
     
     .monitor-static-input, .btn-search-event {
         border-radius: 10px;
         width: 100%;
+        padding: 14px;
+    }
+
+    .banner-illustration {
+        display: none; /* Hide complex illustration on very small screens to save space */
+    }
+
+    .scanner-setup-banner {
+        justify-content: center;
+        text-align: center;
+        height: auto;
+        padding: 20px;
     }
 }

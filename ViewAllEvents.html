@@ -1,91 +1,218 @@
 <div id="section-events" class="content-section">
     <div class="page-header">
         <h1>View All Events</h1>
-        <p>Monitor Event status</p>
+        <p>Monitor Event status and manage activity logs</p>
     </div>
 
     <div class="users-control-bar">
         <div class="control-card">
-            Total Event: <span class="highlight-count">128</span>
+            Total Events: <span id="event-total-count" class="highlight-count">0</span>
         </div>
+        
         <div class="control-search-pill">
             <i class='bx bx-search'></i>
-            <input type="text" placeholder="Search events...">
+            <input type="text" id="event-search-input" placeholder="Search event name or category...">
         </div>
-        <button class="btn-control-outline">Status All <i class='bx bx-chevron-down'></i></button>
-        <button class="btn-control-outline">Role <i class='bx bx-chevron-down'></i></button>
-        <button class="btn-control-outline">Date Range All <i class='bx bx-chevron-down'></i></button>
-        <button class="btn-control-purple"><i class='bx bx-plus'></i> New Event</button>
+        
+        <div class="pop-box-wrapper">
+            <button type="button" class="btn-control-outline" onclick="togglePopBox('event-status-pop-box')">
+                <span id="event-filter-label">Status All</span> <i class='bx bx-chevron-down'></i>
+            </button>
+            <div id="event-status-pop-box" class="pop-box-content">
+                <div class="pop-box-header">Select Status</div>
+                <div class="pop-option" onclick="filterEventByStatus('All')">All Status</div>
+                <div class="pop-option" onclick="filterEventByStatus('Active')">Active</div>
+                <div class="pop-option" onclick="filterEventByStatus('Upcoming')">Upcoming</div>
+                <div class="pop-option" onclick="filterEventByStatus('Archived')">Archived</div>
+            </div>
+        </div>
+
+        <button type="button" class="btn-control-outline">Date Range <i class='bx bx-calendar'></i></button>
+        
+        <button type="button" class="btn-control-purple" onclick="openEventModal()">
+            <i class='bx bx-plus'></i> New Event
+        </button>
     </div>
 
     <div class="card users-list-container">
-        <div class="table-status-filter">
-            Status <span class="purple-link">All <i class='bx bx-chevron-down'></i></span>
-        </div>
-
-        <div class="events-header-row">
-            <div class="col-header">Event Name</div>
-            <div class="col-header">Category <i class='bx bx-chevron-down'></i></div>
-            <div class="col-header">Date <i class='bx bx-chevron-down'></i></div>
-            <div class="col-header">Registration</div>
-            <div class="col-header">Status <i class='bx bx-chevron-down'></i></div>
-        </div>
-
-        <div class="list-inner-purple-box">
-            <div class="event-data-row">
-                <div class="user-bold">Campus Seminar 2026</div>
-                <div>Educational</div>
-                <div>March 26, 2026</div>
-                <div>503</div>
-                <div><span class="badge active">Active <i class='bx bx-chevron-down'></i></span></div>
+            <div class="table-status-filter">
+                Status <span class="purple-link">Current View <i class='bx bx-chevron-down'></i></span>
             </div>
 
-            <div class="event-data-row">
-                <div class="user-bold">Barangay Job Fair</div>
-                <div>Community</div>
-                <div>March 4, 2026</div>
-                <div>50</div>
-                <div><span class="badge active">Active <i class='bx bx-chevron-down'></i></span></div>
+            <div class="events-header-row">
+                <div class="col-header">Event Name</div>
+                <div class="col-header">Category</div>
+                <div class="col-header">Date</div>
+                <div class="col-header">Registration</div>
+                <div class="col-header">Status</div>
+                <div class="col-header">Actions</div>
             </div>
 
-            <div class="event-data-row">
-                <div class="user-bold">Tech Innovation Seminar</div>
-                <div>Educational</div>
-                <div>March 10, 2026</div>
-                <div>159</div>
-                <div><span class="badge upcoming">Upcoming <i class='bx bx-chevron-down'></i></span></div>
+            <div class="list-inner-purple-box" id="events-table-body" style="min-height: 50px;">
+                <div id="event-empty-state" style="padding: 100px 20px; text-align: center; color: #9b69e4;">
+                    <i class='bx bx-calendar-x' style="font-size: 60px; opacity: 0.3; margin-bottom: 15px;"></i>
+                    <p style="font-weight: 600; font-size: 18px; margin: 0;">No Event record yet.</p>
+                    <p style="font-size: 14px; opacity: 0.7;">Click "New Event" to populate your dashboard.</p>
+                </div>
+                
+                </div>
+
+            <div class="pagination-controls">
+                <button type="button" class="btn-paginate" id="prevEventPage" onclick="changeEventPage(-1)">
+                    <i class='bx bx-chevron-left'></i> Previous
+                </button>
+                
+                <div class="page-numbers" id="eventPageNumbers"></div>
+                
+                <button type="button" class="btn-paginate" id="nextEventPage" onclick="changeEventPage(1)">
+                    Next <i class='bx bx-chevron-right'></i>
+                </button>
             </div>
 
-            <div class="event-data-row">
-                <div class="user-bold">Justin & Selena Wedding</div>
-                <div>Social</div>
-                <div>March 20, 2026</div>
-                <div>40</div>
-                <div><span class="badge archived">Archived <i class='bx bx-chevron-down'></i></span></div>
-            </div>
-
-            <div class="event-data-row">
-                <div class="user-bold">Customer Service Training</div>
-                <div>Corporate</div>
-                <div>March 2, 2026</div>
-                <div>20</div>
-                <div><span class="badge archived">Archived <i class='bx bx-chevron-down'></i></span></div>
+            <div class="list-footer-centered">
+                <div id="event-footer-info" style="font-size: 12px; color: #999;">Showing 0 of 0 Events</div>
             </div>
         </div>
-
-        <div class="list-footer-centered">
-            <button class="btn-view-more">View All Events <i class='bx bx-chevron-down'></i></button>
-        </div>
-    </div>
 
     <div class="card export-card">
         <div class="export-text">
-            <h3>Export Users</h3>
-            <p>Export your file here.</p>
+            <h3>Export Events</h3>
+            <p>Generate high-quality reports in PDF or CSV format.</p>
         </div>
         <div class="export-btns">
-            <button class="btn-export-purple"><i class='bx bxs-download'></i> Export PDF</button>
-            <button class="btn-export-teal"><i class='bx bxs-download'></i> Export CSV</button>
+            <button type="button" class="btn-export-purple" onclick="exportEventData('pdf')">
+                <i class='bx bxs-file-pdf'></i> Export PDF
+            </button>
+            <button type="button" class="btn-export-teal" onclick="exportEventData('csv')">
+                <i class='bx bx-spreadsheet'></i> Export CSV
+            </button>
         </div>
+    </div>
+</div>
+
+<div id="hh-event-toast-container" class="hh-event-toast-wrapper"></div>
+
+<div id="eventModal" class="modal-overlay">
+    <div class="modal-content event-modal-card-large">
+        <div class="modal-header">
+            <h2 id="eventModalTitle">Create New Event</h2>
+            <button type="button" class="close-modal-btn" onclick="closeEventModal()">&times;</button>
+        </div>
+        
+        <form id="eventForm" onsubmit="saveEventLogic(event)">
+            <div class="event-modal-grid">
+                <div class="modal-col-left">
+                    <div class="form-section-title">
+                        <i class='bx bxs-info-circle'></i> <span>General Details</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventName">Event Name*</label>
+                        <input type="text" id="eventName" class="form-input" placeholder="e.g., Grand Alumni Homecoming" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventDescription">Event Description*</label>
+                        <textarea id="eventDescription" rows="4" class="form-input" placeholder="Describe your event highlights..." required></textarea>
+                    </div>
+
+                    <div class="form-section-title">
+                        <i class='bx bxs-map-pin'></i> <span>Event Logistics</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="event-dates">Event Dates*</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="event-dates" class="form-input" placeholder="Click to select date range" required readonly>
+                            <i class='bx bx-calendar'></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventLocation">Event Location*</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="eventLocation" class="form-input" placeholder="Enter location or click map icon" required>
+                            <i class='bx bx-map-pin map-trigger' onclick="HH_Events.toggleMap()"></i>
+                        </div>
+                        <div id="map-container" style="display: none; width: 100%; height: 250px; border-radius: 12px; border: 1px solid #e2d9f3; margin-top: 10px;"></div>
+                    </div>
+                </div>
+
+                <div class="modal-col-right">
+                    <div class="form-section-title">
+                        <i class='bx bxs-cog'></i> <span>Registration Settings</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventCategory">Select category</label>
+                        <select id="eventCategory" class="form-input" required>
+                            <option value="Educational">Educational</option>
+                            <option value="Community">Community</option>
+                            <option value="Social">Social</option>
+                            <option value="Corporate">Corporate</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row-triple">
+                        <div class="form-group">
+                            <label for="startTime">Start Time*</label>
+                            <div class="input-with-icon">
+                                <input type="time" id="startTime" class="form-input" required>
+                                <i class='bx bx-time'></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="endTime">End Time*</label>
+                            <div class="input-with-icon">
+                                <input type="time" id="endTime" class="form-input" required>
+                                <i class='bx bxs-time'></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventCapacity">Capacity*</label>
+                            <div class="input-with-icon">
+                                <input type="number" id="eventCapacity" class="form-input" placeholder="0" min="1" required>
+                                <i class='bx bx-group'></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Event Banner</label>
+                        <div class="image-upload-box" id="imageUploadBox">
+                            <input type="file" id="eventImageInput" hidden accept="image/*">
+                            <div id="imagePreviewOverlay">
+                                <button type="button" class="btn-add-image-overlay">
+                                    <i class='bx bx-cloud-upload'></i> Choose Photo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-tips-card">
+                        <div class="tips-content">
+                            <div class="tips-header">
+                                <i class='bx bxs-bulb'></i>
+                                <span>Event Quick Tips</span>
+                            </div>
+                            <p>High-quality banners and clear schedules increase engagement by 40%.</p>
+                            <a href="#" class="learn-more-link">Learn more <i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                        <div class="tips-illustration">
+                            <img src="image/Clip path group.png" alt="Event Illustration">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer-left">
+                <button type="submit" class="btn-save-event">
+                    <i class='bx bx-download'></i> Save Event
+                </button>
+                <button type="button" class="btn-delete-event-alt" onclick="closeEventModal()">
+                    <i class='bx bx-trash'></i> Cancel
+                </button>
+            </div>
+        </form>
     </div>
 </div>

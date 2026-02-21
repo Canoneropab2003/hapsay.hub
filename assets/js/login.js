@@ -1,5 +1,79 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- FIXED PART ---
+const homeBtn = document.querySelector('.back-to-home');
+
+if (homeBtn) {
+    homeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // 1. Modern Slim Progress Bar (Top)
+        const progress = document.createElement('div');
+        Object.assign(progress.style, {
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            height: '2px',
+            width: '0%',
+            background: 'linear-gradient(90deg, #6366f1, #a855f7, #ec4899)',
+            zIndex: '10000',
+            boxShadow: '0 0 10px rgba(168, 85, 247, 0.5)',
+            transition: 'width 0.8s cubic-bezier(0.22, 1, 0.36, 1)'
+        });
+        document.body.appendChild(progress);
+
+        // 2. Micro-interaction: Button Feedback
+        homeBtn.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        homeBtn.style.transform = 'scale(0.95) translateX(-10px)';
+        homeBtn.style.opacity = '0';
+        homeBtn.style.filter = 'blur(4px)';
+
+        // 3. The "Portal Exit" - Elements slide and fade at different speeds
+        const mainContent = document.querySelector('main');
+        const nebulas = document.querySelectorAll('.nebula');
+        const nav = document.querySelector('nav');
+
+        // Trigger the progress bar
+        requestAnimationFrame(() => {
+            progress.style.width = '100%';
+        });
+
+        // Main content "Recedes"
+        if (mainContent) {
+            mainContent.style.transition = 'all 0.7s cubic-bezier(0.65, 0, 0.35, 1)';
+            mainContent.style.transform = 'scale(0.92) translateY(20px)';
+            mainContent.style.filter = 'blur(20px)';
+            mainContent.style.opacity = '0';
+        }
+
+        // Navigation fades out upward
+        if (nav) {
+            nav.style.transition = 'all 0.5s ease';
+            nav.style.transform = 'translateY(-20px)';
+            nav.style.opacity = '0';
+        }
+
+        // Background Nebulas drift away deeply
+        nebulas.forEach((nebula, i) => {
+            nebula.style.transition = `all ${0.8 + (i * 0.2)}s cubic-bezier(0.65, 0, 0.35, 1)`;
+            nebula.style.transform = `scale(1.5) translate(${i * 50}px, ${i * -50}px)`;
+            nebula.style.opacity = '0';
+        });
+
+        // 4. Final Redirect
+        setTimeout(() => {
+            // Smoothly dip to black before the new page loads
+            document.body.style.transition = 'background 0.4s ease';
+            document.body.style.backgroundColor = '#000';
+            
+            setTimeout(() => {
+                window.location.href = "visitor.html";
+            }, 100);
+        }, 750);
+    });
+}
+    // -----------------
+
     // --- 1. CONFIGURATION ---
     // ✅ Updated with your specific Client ID
     const GOOGLE_CLIENT_ID = "430731112851-21fmtare4d688sfj4ipb3ohbddajuk1f.apps.googleusercontent.com";

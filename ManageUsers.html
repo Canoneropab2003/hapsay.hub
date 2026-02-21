@@ -1,89 +1,87 @@
 <div id="section-users" class="content-section">
     <div class="page-header">
         <h1>Manage Users & Roles</h1>
-        <p>Approve / suspend users</p>
+        <p>Approve / suspend users and manage login credentials</p>
     </div>
 
     <div class="users-control-bar">
-        <div class="control-card total-users-card">Total Users: <span class="highlight-count">642</span></div>
-        <div class="control-search-pill"><i class='bx bx-search'></i><input type="text" placeholder="Search users, roles..."></div>
-        <button class="btn-control-outline">Filters</button>
-        <button class="btn-control-outline">All <i class='bx bx-chevron-down'></i></button>
-        <button class="btn-control-purple"><i class='bx bx-plus'></i> New User</button>
-        <button class="btn-control-teal"><i class='bx bx-plus'></i> New Role</button>
+        <div class="control-card total-users-card">
+            Total Users: <span id="total-count" class="highlight-count">0</span>
+        </div>
+        
+        <div class="control-search-pill">
+            <i class='bx bx-search'></i>
+            <input type="text" id="user-search" placeholder="Search users, roles, usernames...">
+        </div>
+        
+        <div class="pop-box-wrapper">
+            <button type="button" class="btn-control-outline" onclick="togglePopBox('filter-pop-box')">
+                <i class='bx bx-filter-alt'></i> Filters
+            </button>
+            <div id="filter-pop-box" class="pop-box-content">
+                <div class="pop-box-header">Filter Options</div>
+                <div class="pop-box-body">
+                    <label><input type="checkbox" id="filter-verified"> Verified Only</label>
+                    <label><input type="checkbox" id="filter-active"> Recently Active</label>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 5px 0;">
+                    <button type="button" class="btn-control-purple" onclick="applyAdvancedFilters()" style="width: 100%; justify-content: center; font-size: 12px; padding: 8px;">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="pop-box-wrapper">
+            <button type="button" class="btn-control-outline" id="status-filter-btn" onclick="togglePopBox('status-pop-box')">
+                All <i class='bx bx-chevron-down'></i>
+            </button>
+            <div id="status-pop-box" class="pop-box-content">
+                <div class="pop-box-header">Select Status</div>
+                <div class="pop-option" onclick="selectStatus('All')">All Status</div>
+                <div class="pop-option" onclick="selectStatus('Active')">Active</div>
+                <div class="pop-option" onclick="selectStatus('Suspended')">Suspended</div>
+            </div>
+        </div>
+        
+        <button type="button" class="btn-control-purple" onclick="openAddModal()">
+            <i class='bx bx-plus'></i> New User
+        </button>
+        
+        <button type="button" class="btn-control-teal" onclick="openRoleModal()">
+            <i class='bx bx-plus'></i> New Role
+        </button>
     </div>
 
     <div class="card users-list-container">
         <div class="table-status-filter">
-            Status <span class="purple-link">All <i class='bx bx-chevron-down'></i></span>
+            Status <span class="purple-link" id="current-filter-label" style="cursor:pointer; margin-left:5px;">All <i class='bx bx-chevron-down'></i></span>
         </div>
 
         <div class="list-header-row">
             <div class="col-header">Name</div>
-            <div class="col-header">Email</div>
+            <div class="col-header">Email / Username</div>
             <div class="col-header">User Role</div>
             <div class="col-header">Status <i class='bx bx-chevron-down'></i></div>
             <div class="col-header">Actions <i class='bx bx-chevron-down'></i></div>
         </div>
 
-        <div class="list-inner-purple-box">
-            <div class="list-data-row">
-                <div class="user-bold">Juan Dela Cruz</div>
-                <div class="user-email">juan.delacruz@gmail.com</div>
-                <div class="user-role">Event Organizer</div>
-                <div class="user-status"><span class="badge active">Active</span></div>
-                <div class="user-actions">
-                    <button class="btn-edit-user"><i class='bx bx-edit-alt'></i> Edit</button>
-                    <button class="btn-suspend-user">Suspend</button>
-                </div>
-            </div>
-
-            <div class="list-data-row">
-                <div class="user-bold">Alex Reyes</div>
-                <div class="user-email">alexreyes@gmail.com</div>
-                <div class="user-role">Viewer</div>
-                <div class="user-status"><span class="badge suspended">Suspended</span></div>
-                <div class="user-actions">
-                    <button class="btn-edit-user"><i class='bx bx-edit-alt'></i> Edit</button>
-                    <button class="btn-suspend-user">Suspend</button>
-                </div>
-            </div>
-
-            <div class="list-data-row">
-                <div class="user-bold">Maria Santos</div>
-                <div class="user-email">mariasantos@gmail.com</div>
-                <div class="user-role">Event Staff / Scan</div>
-                <div class="user-status"><span class="badge active">Active</span></div>
-                <div class="user-actions">
-                    <button class="btn-edit-user"><i class='bx bx-edit-alt'></i> Edit</button>
-                    <button class="btn-approve-user">Approve</button>
-                </div>
-            </div>
-
-            <div class="list-data-row">
-                <div class="user-bold">Lira Mercado</div>
-                <div class="user-email">lirasantos@gmail.com</div>
-                <div class="user-role">Volunteer</div>
-                <div class="user-status"><span class="badge active">Active</span></div>
-                <div class="user-actions">
-                    <button class="btn-edit-user"><i class='bx bx-edit-alt'></i> Edit</button>
-                    <button class="btn-approve-user">Approve</button>
-                </div>
-            </div>
-
-            <div class="list-data-row">
-                <div class="user-bold">Carlos Generoso</div>
-                <div class="user-email">carlosgeneroso@gmail.com</div>
-                <div class="user-role">Admin</div>
-                <div class="user-status"><span class="badge active">Active</span></div>
-                <div class="user-actions">
-                    <button class="btn-edit-user"><i class='bx bx-edit-alt'></i> Edit</button>
-                    <button class="btn-approve-user">Approve</button>
-                </div>
+        <div class="list-inner-purple-box" id="users-table-body">
+            <div id="empty-state-placeholder" style="padding: 60px 20px; text-align: center; color: #9b69e4;">
+                <i class='bx bx-user-x' style="font-size: 50px; opacity: 0.3; margin-bottom: 15px;"></i>
+                <p style="font-weight: 600; font-size: 16px; margin: 0;">No Users or Roles yet.</p>
+                <p style="font-size: 13px; opacity: 0.7;">Click "New User" to populate your list.</p>
             </div>
         </div>
 
-        <div class="list-footer-info">Showing 5 of 642 Users</div>
+        <div class="pagination-controls">
+            <button type="button" class="btn-paginate" id="prevPage" onclick="changePage(-1)">
+                <i class='bx bx-chevron-left'></i> Previous
+            </button>
+            <div class="page-numbers" id="pageNumbers"></div>
+            <button type="button" class="btn-paginate" id="nextPage" onclick="changePage(1)">
+                Next <i class='bx bx-chevron-right'></i>
+            </button>
+        </div>
+
+        <div class="list-footer-info" id="footer-count">Showing 0 to 0 of 0 Users</div>
     </div>
 
     <div class="card export-card">
@@ -92,8 +90,97 @@
             <p>Export your csv file users here.</p>
         </div>
         <div class="export-btns">
-            <button class="btn-export-purple"><i class='bx bxs-download'></i> Export PDF</button>
-            <button class="btn-export-teal"><i class='bx bxs-download'></i> Export CSV</button>
+            <button type="button" class="btn-export-purple" onclick="exportData('pdf')"><i class='bx bxs-download'></i> Export PDF</button>
+            <button type="button" class="btn-export-teal" onclick="exportData('csv')"><i class='bx bxs-download'></i> Export CSV</button>
+        </div>
+    </div>
+</div>
+
+<div id="userModal" class="modal-overlay">
+    <div class="modal-content user-modal-card">
+        <div class="modal-header">
+            <h2 id="modalTitle">Add New User</h2>
+            <button type="button" class="close-modal-btn" onclick="closeUserModal()">&times;</button>
+        </div>
+        
+        <form id="userForm" onsubmit="event.preventDefault();">
+            <input type="hidden" id="editUserId">
+            
+            <div class="form-row" style="display: flex; gap: 15px;">
+                <div class="form-group" style="flex: 1;">
+                    <label for="userName">Full Name</label>
+                    <input type="text" id="userName" placeholder="e.g. Juan Dela Cruz" required>
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label for="userLoginID">Username / Login ID</label>
+                    <input type="text" id="userLoginID" placeholder="juan_dc2024" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="userEmail">Email Address</label>
+                <input type="email" id="userEmail" placeholder="e.g. juan@gmail.com" required>
+            </div>
+
+            <div class="form-group" style="position: relative;">
+                <label for="userPassword">Temporary Password</label>
+                <input type="password" id="userPassword" placeholder="Minimum 8 characters" required>
+                <i class='bx bx-show' id="togglePw" style="position: absolute; right: 15px; top: 38px; cursor: pointer; color: #9b69e4;"></i>
+            </div>
+            
+            <div class="form-group">
+                <label for="userRole">Assign Role (Dashboard Type)</label>
+                <select id="userRole" required></select>
+            </div>
+
+            <div class="form-group" style="display: flex; align-items: center; gap: 10px; background: #f8f5ff; padding: 10px; border-radius: 8px;">
+                <input type="checkbox" id="grantAccess" checked>
+                <label for="grantAccess" style="margin: 0; font-size: 13px; color: #9b69e4;">Grant immediate Login Access</label>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn-control-outline" onclick="closeUserModal()">Cancel</button>
+                <button type="button" class="btn-control-purple" onclick="saveUserLogic(event)">Save User</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="roleModal" class="modal-overlay">
+    <div class="modal-content user-modal-card" style="border-top: 5px solid #81e2d6;">
+        <div class="modal-header">
+            <h2>Create New Role</h2>
+            <button type="button" class="close-modal-btn" onclick="closeRoleModal()">&times;</button>
+        </div>
+        
+        <form id="roleForm" onsubmit="event.preventDefault();">
+            <div class="form-group">
+                <label for="newRoleName">Role Name</label>
+                <input type="text" id="newRoleName" placeholder="e.g. Moderator, Superuser" required>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn-control-outline" onclick="closeRoleModal()">Cancel</button>
+                <button type="button" class="btn-control-teal" onclick="saveRoleLogic(event)">Create Role</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="deleteConfirmModal" class="modal-overlay">
+    <div class="modal-content user-modal-card delete-confirm-card">
+        <div class="modal-header">
+            <h2 style="color: #ff4d4d;">Delete User</h2>
+            <button type="button" class="close-modal-btn" onclick="closeDeleteModal()">&times;</button>
+        </div>
+        <div class="modal-body" style="text-align: center; padding: 20px 0;">
+            <i class='bx bxs-error-circle delete-confirm-icon'></i>
+            <p id="deleteModalMsg" style="font-weight: 600; font-size: 16px; margin-bottom: 10px;"></p>
+            <p style="font-size: 13px; color: #888;">This action is permanent and cannot be undone.</p>
+        </div>
+        <div class="modal-footer" style="justify-content: center; gap: 15px; margin-top: 10px;">
+            <button type="button" class="btn-control-outline" onclick="closeDeleteModal()">No, Cancel</button>
+            <button type="button" class="btn-confirm-delete" onclick="confirmDeleteUser()">Yes, Delete Permanently</button>
         </div>
     </div>
 </div>

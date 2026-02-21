@@ -1,8 +1,7 @@
 /* ==========================================================================
-   1. MAIN VIEW & HEADER (Responsive)
+    1. MAIN VIEW & HEADER (Responsive)
    ========================================================================== */
 #create-edit-view {
-    /* Responsive padding: smaller on mobile, larger on desktop */
     padding: clamp(15px, 3vw, 25px);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     animation: fadeIn 0.4s ease-in-out;
@@ -11,7 +10,7 @@
 }
 
 .page-header-simple h1 {
-    font-size: clamp(1.5rem, 5vw, 1.8rem); /* Scales font size */
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
     color: #333;
     margin-bottom: 5px;
 }
@@ -23,20 +22,24 @@
 }
 
 /* ==========================================================================
-   2. TAB NAVIGATION (Scrollable on Mobile)
+    2. TAB NAVIGATION
    ========================================================================== */
 .event-tabs {
     display: flex;
     gap: 5px;
     margin-bottom: -1px;
-    /* Allows tabs to be swiped horizontally on small screens */
     overflow-x: auto;
     white-space: nowrap;
-    scrollbar-width: none; /* Firefox */
 }
 
 .event-tabs::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    display: none;
+}
+
+@supports (scrollbar-width: none) {
+    .event-tabs {
+        scrollbar-width: none;
+    }
 }
 
 .tab-btn {
@@ -56,7 +59,7 @@
 }
 
 /* ==========================================================================
-   3. MAIN CARD & GRID (Responsive)
+    3. MAIN CARD & GRID
    ========================================================================== */
 .form-card {
     background: #fff;
@@ -68,207 +71,44 @@
 
 .form-grid {
     display: grid;
-    /* Default: 2 columns. Media query below handles mobile. */
     grid-template-columns: 1.2fr 1fr;
     gap: 40px;
 }
 
 /* ==========================================================================
-   4. CATEGORIES LIST VIEW
+    4. UNIQUE FORM ACTIONS
    ========================================================================== */
-.section-helper-text {
-    color: #777;
-    font-size: 0.95rem;
-    margin-bottom: 25px;
-}
-
-.category-items-container {
-    border: 1px solid #eee;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 25px;
-}
-
-.category-list-item {
+.hh-actions-wrapper {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px clamp(10px, 3vw, 25px);
-    background: #fdfdfd;
-    border-bottom: 1px solid #eee;
-    transition: background 0.2s;
-    flex-wrap: wrap; /* Allows wrapping on tiny screens */
-    gap: 10px;
+    gap: 15px;
+    margin-top: 25px;
 }
 
-.category-list-item:last-child {
-    border-bottom: none;
-}
-
-.category-list-item:hover {
-    background: #f9f7ff;
-}
-
-.category-label {
-    font-weight: 600;
-    color: #444;
-    font-size: 1rem;
-    word-break: break-word; /* Prevents long text breaking layout */
-}
-
-.category-item-actions {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.btn-inline-edit {
-    background-color: #A394E2;
-    color: white;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: 0.3s;
-    white-space: nowrap;
-}
-
-.btn-inline-edit:hover {
-    background-color: #8e7cd1;
-    transform: translateY(-1px);
-}
-
-.btn-inline-delete {
-    background: white;
-    color: #A394E2;
-    border: 1px solid #eee;
-    width: 38px;
-    height: 38px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.2rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: 0.3s;
-    flex-shrink: 0;
-}
-
-.btn-inline-delete:hover {
-    color: #e57373;
-    border-color: #e57373;
-}
-
-.btn-create-category {
-    background-color: #B39DDB;
-    color: white;
-    border: none;
+.hh-btn-main {
     padding: 12px 25px;
-    border-radius: 10px;
+    border-radius: 12px;
+    border: none;
     font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
-    box-shadow: 0 4px 12px rgba(179, 157, 219, 0.4);
-    transition: 0.3s;
-    width: fit-content;
-}
-
-.btn-create-category:hover {
-    background-color: #9575CD;
-}
-
-/* ==========================================================================
-   5. MODAL POP-UP STYLING
-   ========================================================================== */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
     justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    backdrop-filter: blur(4px);
-    padding: 15px; /* Ensures modal doesn't touch screen edges on mobile */
+    gap: 8px;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.modal-content {
-    background: white;
-    padding: clamp(20px, 5vw, 30px);
-    border-radius: 20px;
-    width: 100%;
-    max-width: 450px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    animation: modalSlideIn 0.3s ease-out;
-    box-sizing: border-box;
-}
+.hh-save-color { background: #83d0cb; color: white; }
+.hh-delete-color { background: #e57373; color: white; }
 
-.modal-small {
-    max-width: 380px;
+.hh-btn-main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.modal-header h3 {
-    margin: 0;
-    color: #333;
-    font-size: 1.2rem;
-}
-
-.close-modal {
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #bbb;
-    line-height: 1;
-    padding: 5px; /* Bigger touch target */
-}
-
-.modal-footer {
-    display: flex;
-    gap: 12px;
-    justify-content: flex-end;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-.btn-cancel {
-    background: #f1f1f1;
-    color: #666;
-    border: none;
-    padding: 12px 22px;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-cancel:hover {
-    background: #e5e5e5;
-}
-
-.text-center { text-align: center; }
 
 /* ==========================================================================
-   6. EXISTING FORM & TIPS STYLING
+    5. FORM INPUTS & MAP (Clean & Accessible)
    ========================================================================== */
-.input-group { margin-bottom: 20px; }
+.input-group { margin-bottom: 20px; position: relative; }
 
 .input-group label {
     display: block;
@@ -284,12 +124,16 @@
     border-radius: 8px;
     background-color: #fcfcfc;
     font-size: 0.95rem;
-    outline: none;
-    transition: border 0.3s ease;
-    box-sizing: border-box; /* Crucial for responsive width */
+    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
-.form-input:focus { border-color: #a389f4; }
+.form-input:focus {
+    border-color: #a389f4;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(163, 137, 244, 0.1);
+    outline: none;
+}
 
 .input-with-icon { position: relative; }
 
@@ -299,38 +143,29 @@
     top: 50%;
     transform: translateY(-50%);
     color: #a389f4;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
 }
 
-.category-row {
-    display: flex;
-    align-items: flex-end;
-    gap: 15px;
-    margin-bottom: 20px;
-    flex-wrap: wrap; /* Allows button to drop below select on mobile */
-}
+#map-picker-btn { cursor: pointer; }
+#map-picker-btn:hover { color: #83d0cb; }
 
-.input-group.flex-grow {
-    flex-grow: 1;
-    min-width: 200px;
-}
-
-.btn-new-cat {
-    background-color: #bfaaff;
-    color: white;
-    border: none;
-    padding: 12px 20px;
+.hh-map-display {
+    display: none;
+    margin-top: 10px;
+    height: 300px;
+    width: 100%;
     border-radius: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    height: 45px;
-    transition: 0.3s;
-    white-space: nowrap;
+    border: 1px solid #ddd;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
+/* ==========================================================================
+    6. IMAGE UPLOAD BOX
+   ========================================================================== */
 .image-upload-box {
     position: relative;
     width: 100%;
@@ -338,156 +173,333 @@
     border-radius: 15px;
     overflow: hidden;
     margin-top: 10px;
+    border: 2px dashed #ddd;
+    background: #fdfdfd;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.preview-img { width: 100%; height: 100%; object-fit: cover; }
+.hh-hidden-input { display: none; }
+
+.image-upload-box:hover {
+    border-color: #a389f4;
+    background: #f9f7ff;
+}
+
+.preview-img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
 
 .btn-add-img {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(255,255,255,0.9);
-    border: none;
-    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+    padding: 10px 18px;
     border-radius: 8px;
     font-weight: 600;
-    cursor: pointer;
-    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.form-actions {
-    display: flex;
-    gap: 15px;
-    margin-top: 30px;
-    flex-wrap: wrap; /* Allows stacking buttons on mobile */
-}
+/* ==========================================================================
+    7. CATEGORIES TAB & SCROLLABLE AREA
+   ========================================================================== */
+.hh-tab-content { display: none; animation: fadeIn 0.3s ease; }
 
-.btn-save {
-    background-color: #83d0cb;
-    color: white;
-    border: none;
-    padding: 12px 25px;
+.section-helper-text { color: #777; font-size: 0.9rem; margin-bottom: 20px; }
+
+.category-items-container {
+    border: 1px solid #eee;
     border-radius: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+    max-height: 400px;
+    background: #fff;
+    position: relative;
+    min-height: 100px;
 }
 
-.btn-delete {
-    background-color: #e57373;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.category-items-container::-webkit-scrollbar {
+    width: 6px;
 }
 
-.event-tips-card {
-    background-color: #f3f0ff;
-    border-radius: 15px;
-    padding: 20px;
-    margin-top: 30px;
+.category-items-container::-webkit-scrollbar-thumb {
+    background-color: #D1C4E9;
+    border-radius: 10px;
+}
+
+@supports (scrollbar-width: thin) {
+    .category-items-container {
+        scrollbar-width: thin;
+        scrollbar-color: #D1C4E9 transparent;
+    }
+}
+
+.category-list-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px 20px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s ease;
+}
+
+.category-list-item:hover { background: #f9f7ff; }
+.category-label { font-weight: 600; color: #444; }
+
+.category-item-actions { display: flex; gap: 10px; }
+
+.btn-inline-edit {
+    background: #f3f0ff;
+    color: #a389f4;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-inline-delete { color: #e57373; background: transparent; border: none; font-size: 1.2rem; cursor: pointer; }
+
+.btn-create-category {
+    background-color: #B39DDB;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(179, 157, 219, 0.4);
+    transition: 0.3s;
+    width: fit-content;
+}
+
+/* ==========================================================================
+    8. ALL EVENTS TAB & SCROLLABLE TABLE
+   ========================================================================== */
+.events-list-view { animation: fadeIn 0.3s ease; }
+
+.list-view-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.search-box-simple {
+    min-width: 250px;
+}
+
+.events-table-container {
+    overflow-y: auto;
+    max-height: 500px; /* Limits table height and makes it scrollable */
+    min-height: 300px; /* Ensures empty state has room to center beautifully */
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: #fff;
     position: relative;
-    overflow: hidden;
-    gap: 15px;
+    display: flex; /* Helps center the empty state */
+    flex-direction: column;
 }
 
-.tips-text h4 { margin: 0 0 5px 0; color: #555; }
-.tips-text p { font-size: 0.85rem; color: #777; margin-bottom: 10px; max-width: 180px; }
-.tips-text a { color: #a389f4; text-decoration: none; font-weight: 600; }
-.tips-img-container img { height: 100px; }
-
-/* ==========================================================================
-   7. ANIMATIONS
-   ========================================================================== */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Custom Teal Scrollbar for Events */
+.events-table-container::-webkit-scrollbar {
+    width: 6px;
 }
 
-@keyframes modalSlideIn {
-    from { transform: translateY(-30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+.events-table-container::-webkit-scrollbar-thumb {
+    background-color: #83d0cb;
+    border-radius: 10px;
 }
 
-/* ==========================================================================
-   8. MEDIA QUERIES (Small Screen & Tablet Handling)
-   ========================================================================== */
-
-/* Tablet (max-width: 992px) */
-@media (max-width: 992px) {
-    .form-grid {
-        grid-template-columns: 1fr; /* Switch to single column */
+@supports (scrollbar-width: thin) {
+    .events-table-container {
+        scrollbar-width: thin;
+        scrollbar-color: #83d0cb transparent;
     }
 }
 
-/* Mobile (max-width: 576px) */
+.events-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    margin-top: 0;
+}
+
+/* Sticky Header logic - Keeps the header visible while scrolling */
+.events-table thead th {
+    position: sticky;
+    top: 0;
+    background: #f8f9fa;
+    z-index: 10;
+    padding: 15px;
+    text-align: left;
+    color: #555;
+    font-weight: 700;
+    box-shadow: inset 0 -1px 0 #eee;
+}
+
+.events-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+    color: #444;
+}
+
+/* Elegant hover effect for table rows */
+.events-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+.events-table tbody tr:hover {
+    background-color: #f9f7ff; /* Light purple tint on hover */
+}
+
+.table-thumb {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 12px;
+}
+
+.event-info-cell {
+    display: flex;
+    align-items: center;
+}
+
+/* Pure CSS Auto-Empty State Logic */
+.events-table-container:has(#events-list-body:empty) #events-main-table {
+    display: none; /* Hides table head if there are no rows */
+}
+.events-table-container:has(#events-list-body:empty) #events-empty-state {
+    display: flex; /* Automatically displays the placeholder */
+    margin: auto; /* Centers perfectly vertically and horizontally */
+}
+
+/* ==========================================================================
+    9. EMPTY STATES (Categories & Events)
+   ========================================================================== */
+.hh-empty-state {
+    display: none; /* Controlled via JS or CSS :has() */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hh-empty-state i {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #f3f0ff;
+}
+
+.hh-empty-state p {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 0 5px 0;
+    color: #666;
+}
+
+.hh-empty-state span {
+    font-size: 0.85rem;
+    color: #999;
+    max-width: 300px;
+}
+
+/* Specific teal tint for events empty state icon */
+#events-empty-state i { color: #e8f4f3; }
+
+/* ==========================================================================
+    10. BADGES, TOASTS & MODALS
+   ========================================================================== */
+.badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+.badge-edu { background: #e8f4fd; color: #2196f3; }
+
+.table-actions { display: flex; gap: 8px; }
+.btn-icon-edit, .btn-icon-delete {
+    background: transparent; border: none; cursor: pointer; font-size: 1.1rem; padding: 5px; transition: 0.2s;
+}
+.btn-icon-edit { color: #a389f4; }
+.btn-icon-delete { color: #e57373; }
+.btn-icon-edit:hover { transform: scale(1.1); }
+
+.hh-toast-box {
+    visibility: hidden; min-width: 280px; color: #fff; text-align: center; border-radius: 50px; padding: 16px 24px; position: fixed; z-index: 10000; left: 50%; bottom: 30px; transform: translateX(-50%); box-shadow: 0 10px 30px rgba(0,0,0,0.2); font-weight: 600;
+}
+.hh-toast-box.hh-show { visibility: visible; animation: hh-fadein 0.5s, hh-fadeout 0.5s 2.5s; }
+
+.hh-modal-backdrop {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    display: none; justify-content: center; align-items: center; z-index: 9999;
+}
+.hh-modal-window {
+    background: white; padding: 35px; border-radius: 24px;
+    max-width: 380px; width: 90%; text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3); animation: hh-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.hh-icon-large { font-size: 3.5rem; margin-bottom: 15px; display: block; border-radius: 50%; width: 60px; height: 60px; line-height: 60px; margin: 0 auto 15px auto;}
+.hh-modal-footer { display: flex; gap: 12px; margin-top: 25px; }
+.hh-modal-footer button { flex: 1; padding: 12px; border-radius: 10px; border: none; cursor: pointer; font-weight: 600; transition: 0.2s; }
+.hh-btn-gray { background: #f1f1f1; color: #666; }
+.hh-btn-action { color: white; }
+
+/* ==========================================================================
+    11. EVENT QUICK TIPS CARD & MODAL CONTENT
+   ========================================================================== */
+.event-tips-card {
+    background: linear-gradient(135deg, #f3f0ff 0%, #e8f4f3 100%);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 10px 20px rgba(163, 137, 244, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tips-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; color: #a389f4; }
+.tips-header i { font-size: 1.4rem; }
+.tips-header h4 { margin: 0; font-size: 1.1rem; font-weight: 700; color: #444; }
+.tips-link { color: #83d0cb; text-decoration: none; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 5px; }
+.tips-img-container { width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; }
+.tips-img-container img { max-width: 100%; height: auto; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); }
+
+.hh-tips-content-area {max-height: 300px; overflow-y: auto; margin: 15px 0;}
+
+.hh-tips-content-area::-webkit-scrollbar {width: 6px;}
+
+.hh-tips-content-area::-webkit-scrollbar-thumb {background-color: #c1c1c1; border-radius: 10px;}
+
+@supports (scrollbar-width: thin) {.hh-tips-content-area {scrollbar-width: thin;}}
+.hh-tips-content-area ul { list-style: none; padding: 0; }
+.hh-tips-content-area ul li { margin-bottom: 15px; color: #555; font-size: 0.95rem; display: flex; align-items: flex-start; gap: 12px; text-align: left; }
+.hh-tips-content-area ul li::before { content: "✦"; color: #a389f4; font-weight: bold; }
+
+/* ==========================================================================
+    12. ANIMATIONS & RESPONSIVE
+   ========================================================================== */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes hh-fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
+@keyframes hh-fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
+@keyframes hh-pop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+@media (max-width: 992px) { 
+    .form-grid { grid-template-columns: 1fr; } 
+    .list-view-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
 @media (max-width: 576px) {
-    /* Main Padding Adjustments */
-    #create-edit-view {
-        padding: 15px;
-    }
-    
-    .form-card {
-        padding: 20px;
-    }
-
-    /* Stack Category List Items */
-    .category-list-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    .category-item-actions {
-        width: 100%;
-        justify-content: flex-end; /* Align buttons right */
-    }
-
-    /* Make Buttons Full Width for easier tapping */
-    .form-actions button,
-    .modal-footer button,
-    .btn-create-category {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .modal-footer {
-        flex-direction: column;
-    }
-
-    /* Stack Tips Card */
-    .event-tips-card {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
-    
-    .tips-text p {
-        max-width: 100%;
-    }
-
-    .tips-img-container img {
-        height: 80px;
-        margin-bottom: 10px;
-    }
-    
-    /* Stack 'New Category' input row */
-    .category-row {
-        flex-direction: column;
-    }
-    
-    .btn-new-cat {
-        width: 100%;
-        justify-content: center;
-    }
+    .event-tips-card { flex-direction: column-reverse; text-align: center; }
+    .tips-header { justify-content: center; }
+    .hh-modal-footer { flex-direction: column-reverse; }
 }

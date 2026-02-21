@@ -1,0 +1,262 @@
+/* =========================================================================
+   SYSTEM CONFIGURATION SCOPED STYLES
+   Updated: Premium Modern Look
+   ========================================================================= */
+
+/* Core Variables for this section (Matches Profile Theme) */
+#section-config {
+    --config-primary: #7F56D9;       /* Main Purple */
+    --config-primary-hover: #6941C6;
+    --config-bg-light: #F9FAFB;
+    --config-border: #EAECF0;
+    --config-text-dark: #101828;
+    --config-text-gray: #667085;
+    --config-radius: 16px;
+    
+    padding: 20px 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* --- 1. Config Group Cards --- */
+#section-config .config-group-card {
+    background: #ffffff;
+    border-radius: var(--config-radius);
+    margin-bottom: 32px;
+    /* Premium layered shadow */
+    box-shadow: 0 4px 6px -2px rgba(16, 24, 40, 0.03), 
+                0 12px 16px -4px rgba(16, 24, 40, 0.08);
+    border: 1px solid var(--config-border);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#section-config .config-group-card:hover {
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: 0 10px 20px -5px rgba(16, 24, 40, 0.1);
+}
+
+/* --- 2. Group Header Styling --- */
+#section-config .group-header {
+    background: #ffffff; /* Clean white header */
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--config-border);
+}
+
+#section-config .group-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--config-text-dark);
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+/* Save Button - Modern Pill Style */
+#section-config .btn-save-changes {
+    background: var(--config-primary);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+#section-config .btn-save-changes:hover {
+    background: var(--config-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(127, 86, 217, 0.2);
+}
+
+/* --- 3. Group Body & Input Layouts --- */
+#section-config .group-body {
+    padding: 32px;
+    background: #ffffff;
+}
+
+#section-config .input-field-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+#section-config .input-field-row:last-child {
+    margin-bottom: 0;
+}
+
+#section-config .input-field-row label {
+    width: 240px; /* Fixed width for alignment */
+    font-weight: 500;
+    color: var(--config-text-dark);
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+/* --- 4. Form Elements Styling --- */
+#section-config .config-input,
+#section-config .config-select {
+    border: 1px solid var(--config-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 15px;
+    color: var(--config-text-dark);
+    width: 100%;
+    max-width: 400px; /* Constrain width */
+    outline: none;
+    transition: all 0.2s ease;
+    background: #ffffff;
+}
+
+#section-config .config-input::placeholder {
+    color: #98A2B3;
+}
+
+/* Input Focus State - Purple Glow */
+#section-config .config-input:focus,
+#section-config .config-select:focus {
+    border-color: var(--config-primary);
+    box-shadow: 0 0 0 4px rgba(127, 86, 217, 0.15);
+}
+
+#section-config .sm-input {
+    width: 140px; /* Slightly wider for better breathing room */
+}
+
+/* Custom Select Wrapper */
+#section-config .select-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+#section-config .select-wrapper i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--config-text-gray);
+    font-size: 12px;
+}
+
+#section-config .config-select {
+    appearance: none;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+/* --- 5. Security Specific Layouts --- */
+#section-config .flex-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+#section-config .checkbox-field-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+#section-config .checkbox-field-row:hover {
+    background: var(--config-bg-light); /* Highlight row on hover */
+}
+
+#section-config .checkbox-field-row label {
+    width: auto;
+    padding-left: 12px;
+    font-weight: 500;
+    color: var(--config-text-dark);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#section-config .config-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--config-primary);
+    border-radius: 4px;
+}
+
+/* Allow Password Status Button (Status Indicator) */
+#section-config .btn-allow-password {
+    background: #ECFDF3; /* Success Green Light */
+    color: #027A48;      /* Success Green Dark */
+    border: 1px solid #D1FADF;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+#section-config .btn-allow-password:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+}
+
+#section-config .btn-allow-password i {
+    font-size: 18px;
+}
+
+/* Grid Layout for Email Config */
+#section-config .grid-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+/* --- 6. Responsive Mobile Fixes --- */
+@media screen and (max-width: 768px) {
+    #section-config .input-field-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    #section-config .input-field-row label {
+        width: 100%;
+        margin-bottom: 4px;
+    }
+
+    #section-config .config-input,
+    #section-config .config-select,
+    #section-config .select-wrapper {
+        max-width: 100%; /* Full width on mobile */
+        width: 100%;
+    }
+
+    #section-config .grid-body {
+        grid-template-columns: 1fr; /* Stack email fields */
+        gap: 20px;
+    }
+    
+    #section-config .flex-body {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #section-config .group-header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    #section-config .btn-save-changes {
+        width: 100%;
+    }
+}

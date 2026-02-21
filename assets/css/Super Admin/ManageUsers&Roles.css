@@ -1,0 +1,771 @@
+/* =========================================
+    1. TOP CONTROL BAR & POP BOXES
+   ========================================= */
+.users-control-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+/* Wrapper to anchor the pop-up to the button */
+.pop-box-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.control-card {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    border: 1px solid #f0f0f0;
+}
+
+.highlight-count {
+    color: #10b981;
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+.control-search-pill {
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 18px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 250px;
+    border: 1px solid #eee;
+}
+
+.control-search-pill i {
+    color: #a0aec0;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.control-search-pill input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    background: transparent;
+    color: #4a5568;
+}
+
+/* Buttons */
+.btn-control-outline {
+    background: white;
+    border: 1px solid #dcd0f9;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #9b69e4;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-control-outline:hover {
+    background: #f8f5ff;
+}
+
+.btn-control-purple {
+    background: #9b69e4;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s;
+}
+
+.btn-control-purple:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn-control-teal {
+    background: #81e2d6;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s;
+}
+
+.btn-control-teal:hover {
+    background: #6bcbc0;
+    transform: translateY(-1px);
+}
+
+/* Pop Box Content Styling */
+.pop-box-content {
+    display: none; /* Controlled by JS .show class */
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: white;
+    min-width: 220px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(155, 105, 228, 0.15);
+    border: 1px solid #e2d9f3;
+    z-index: 1000;
+    overflow: hidden;
+    animation: popIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pop-box-content.show {
+    display: block;
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.pop-box-header {
+    padding: 12px 15px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #9b69e4;
+    background: #f8f5ff;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.pop-box-body {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pop-option {
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    transition: all 0.2s;
+}
+
+.pop-option:hover {
+    background: #f3effe;
+    color: #9b69e4;
+    padding-left: 15px;
+}
+
+.pop-box-body label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+/* =========================================
+    2. USERS LIST STYLING
+   ========================================= */
+.users-list-container {
+    padding: 25px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.table-status-filter {
+    padding-bottom: 15px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #9b69e4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.list-inner-purple-box {
+    background-color: #f3effe;
+    border-radius: 12px;
+    padding: 0 20px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    min-height: 100px;
+}
+
+.list-header-row, .list-data-row {
+    display: grid;
+    /* Adjusted grid to ensure Action column has enough space for 3 buttons */
+    grid-template-columns: 1.2fr 1.5fr 1fr 110px 210px;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.list-header-row {
+    padding: 10px 20px;
+    font-weight: 700;
+    color: #9b69e4;
+    font-size: 14px;
+}
+
+.list-data-row {
+    border-bottom: 1px solid rgba(155, 105, 228, 0.1);
+    font-size: 14px;
+    color: #444;
+}
+
+.list-data-row:last-child {
+    border-bottom: none;
+}
+
+/* NICE DISPLAY FOR LONG TEXT */
+.user-bold {
+    font-weight: 700;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px; 
+}
+
+.user-email {
+    color: #555;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+    display: block;
+}
+
+.user-email small {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-edit-user {
+    background: white;
+    color: #9b69e4;
+    border: 1px solid #dcd0f9;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-suspend-user {
+    background: #f0766d;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-approve-user {
+    background: #82c8d6;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    min-width: 75px;
+}
+
+.badge.active { background: #10b981; }
+.badge.suspended { background: #fca5a5; color: #b91c1c; }
+.badge.pending { background: #fbbf24; }
+
+.list-footer-info {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #999;
+}
+
+/* =========================================
+    3. UPDATED EXPORT SECTION STYLING (PREMIUM LOOK)
+   ========================================= */
+.export-card {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px !important;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f5ff 100%);
+    border-radius: 24px;
+    border: 1px solid #e2d9f3;
+    box-shadow: 0 10px 30px rgba(155, 105, 228, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background decorative circle */
+.export-card::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(155, 105, 228, 0.03);
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+}
+
+.export-text h3 {
+    font-size: 24px;
+    color: #333;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.export-text p {
+    font-size: 15px;
+    color: #718096;
+    font-weight: 500;
+}
+
+.export-btns {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    z-index: 1;
+}
+
+.export-btns button {
+    border: none;
+    padding: 14px 28px;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.btn-export-purple {
+    background: #9b69e4;
+    color: white !important;
+}
+
+.btn-export-purple:hover {
+    background: #834fd1;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(155, 105, 228, 0.3);
+}
+
+.btn-export-teal {
+    background: #14b8a6;
+    color: white !important;
+}
+
+.btn-export-teal:hover {
+    background: #0f9688;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(20, 184, 166, 0.3);
+}
+
+.export-btns button i {
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.export-btns button:hover i {
+    transform: scale(1.2);
+}
+
+/* =========================================
+    4. CUSTOM MODAL STYLING
+   ========================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.user-modal-card {
+    background: white;
+    width: 100%;
+    max-width: 500px; 
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    font-size: 22px;
+    color: #333;
+    font-weight: 700;
+}
+
+.close-modal-btn {
+    background: #f3effe;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #9b69e4;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #777;
+    margin-bottom: 8px;
+    padding-left: 5px;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e2d9f3;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #444;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: #9b69e4;
+    box-shadow: 0 0 0 3px rgba(155, 105, 228, 0.1);
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+#togglePw:hover {
+    color: #7c3aed !important;
+}
+
+.form-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #9b69e4;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+#roleModal .user-modal-card {
+    border-top: 6px solid #81e2d6;
+}
+
+/* =========================================
+    5. AUDIT LOGS / MODAL TABLES
+   ========================================= */
+.modal-content.logs-modal {
+    width: 850px;
+    max-width: 95%;
+}
+
+.logs-inner-box {
+    background-color: #f3effe;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin-top: 10px;
+}
+
+.logs-list-header,
+.log-item-row {
+    display: grid;
+    grid-template-columns: 110px 130px 1fr 200px;
+    gap: 15px;
+    align-items: center;
+    padding: 15px 10px;
+}
+
+.logs-list-header {
+    font-weight: 700;
+    color: #9b69e4;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.log-item-row {
+    border-bottom: 1px solid rgba(155, 105, 228, 0.1);
+    font-size: 14px;
+    color: #444;
+}
+
+.log-item-row:last-child {
+    border-bottom: none;
+}
+
+/* =========================================
+    6. PAGINATION STYLING
+   ========================================= */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(155, 105, 228, 0.1);
+    margin-top: 10px;
+}
+
+.btn-paginate {
+    background: white;
+    border: 1px solid #dcd0f9;
+    color: #9b69e4;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+}
+
+.btn-paginate:hover:not(:disabled) {
+    background: #f3effe;
+    border-color: #9b69e4;
+}
+
+.btn-paginate:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f9f9f9;
+}
+
+.page-numbers {
+    display: flex;
+    gap: 5px;
+}
+
+.page-num {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #777;
+    transition: all 0.2s;
+}
+
+.page-num.active {
+    background: #9b69e4;
+    color: white;
+}
+
+.page-num:hover:not(.active) {
+    background: #f3effe;
+}
+
+/* =========================================
+    7. TOAST NOTIFICATIONS 
+   ========================================= */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.toast {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    border-left: 5px solid #ef4444; /* Red for error */
+    animation: toastSlideIn 0.3s ease-out forwards;
+}
+
+.toast.success { border-left-color: #10b981; }
+
+@keyframes toastSlideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.toast i { font-size: 20px; }
+.toast-msg { font-size: 14px; font-weight: 600; color: #444; }
+
+/* =========================================
+    8. ACTION BUTTONS & INPUT ERROR STYLING 
+   ========================================= */
+.btn-delete-user {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-delete-user:hover {
+    background: #e60000;
+    transform: scale(1.05);
+}
+
+.input-error {
+    border-color: #ef4444 !important;
+    background-color: #fff5f5 !important;
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* =========================================
+    9. CUSTOM DELETE MODAL STYLING (NEW)
+   ========================================= */
+.delete-confirm-card {
+    text-align: center;
+    border-top: 6px solid #ff4d4d !important;
+}
+
+.delete-confirm-icon {
+    font-size: 50px;
+    color: #ff4d4d;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.delete-confirm-card p {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.btn-confirm-delete {
+    background: #ff4d4d;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-confirm-delete:hover {
+    background: #e60000;
+    box-shadow: 0 4px 12px rgba(255, 77, 77, 0.3);
+}
+
+/* =========================================
+    10. ENHANCED DELETE MODAL DESIGN (PREMIUM ADDITIONS)
+   ========================================= */
+#deleteConfirmModal .modal-content {
+    max-width: 400px;
+    padding: 40px 30px;
+}
+
+.delete-modal-msg-bold {
+    display: block;
+    font-weight: 800;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.delete-modal-warning-text {
+    font-size: 13px;
+    color: #a0aec0;
+    background: #fff5f5;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px dashed #feb2b2;
+}
