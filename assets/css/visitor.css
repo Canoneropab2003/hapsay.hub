@@ -24,11 +24,7 @@ body, html {
     flex-direction: column;
     color: white;
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15)), 
-                url('../../../image/background.png'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    /* Background properties removed here to be handled by HTML inline styles */
 }
 
 /* Navigation */
@@ -57,7 +53,7 @@ nav {
     text-decoration: none;
     font-size: 15px;
     font-weight: 500;
-    transition: opacity 0.3s_ease;
+    transition: opacity 0.3s ease;
 }
 
 .nav-link-item:hover {
