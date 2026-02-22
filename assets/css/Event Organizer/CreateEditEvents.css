@@ -503,3 +503,53 @@
     .tips-header { justify-content: center; }
     .hh-modal-footer { flex-direction: column-reverse; }
 }
+
+/* ==========================================================================
+    13. NEW: ADDITIONAL GRID & LAYOUT FIXES
+   ========================================================================== */
+/* Supports the side-by-side layout for Start Time, End Time, and Capacity */
+.form-row-triple {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form-row-triple .input-group {
+    flex: 1;
+    margin-bottom: 0; /* Override default margin inside triple row */
+}
+
+/* Ensure time inputs look consistent across browsers */
+input[type="time"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
+/* Fix for Category Row alignment */
+.category-row {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    margin-bottom: 5px;
+}
+
+.flex-grow {
+    flex: 1;
+}
+
+/* Ensure actions wrapper is clear in mobile */
+@media (max-width: 768px) {
+    .form-row-triple {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

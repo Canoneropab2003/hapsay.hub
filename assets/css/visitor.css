@@ -35,6 +35,8 @@ nav {
     padding: 30px 5%;
     width: 100%;
     z-index: 100;
+    /* Animation on load */
+    animation: fadeInDown 0.8s ease-out both;
 }
 
 .brand-logo {
@@ -92,6 +94,8 @@ nav {
     align-items: center;
     text-align: center;
     padding: 60px 20px;
+    /* Animation on load */
+    animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 .content-wrapper h1 {
@@ -115,6 +119,8 @@ nav {
 .search-bar-container {
     width: 100%;
     max-width: 820px;
+    /* Animation on load */
+    animation: fadeInUp 1s ease-out 0.4s both;
 }
 
 .search-bar {
@@ -206,6 +212,8 @@ nav {
     display: flex;
     flex-direction: column;
     height: 100%;
+    /* Entry animation */
+    animation: fadeInUp 0.8s ease-out both;
 }
 
 .event-card:hover {
@@ -326,13 +334,36 @@ nav {
 
 /* --- Animations --- */
 
+/* Page Load Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* For Hero Scroll (Down) */
 .scroll-icon {
     position: absolute;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    animation: bounceDown 2s infinite;
+    animation: bounceDown 2s infinite, fadeIn 1.5s ease-in;
     cursor: pointer;
 }
 

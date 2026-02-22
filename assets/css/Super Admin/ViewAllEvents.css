@@ -511,3 +511,49 @@ input[type="number"]::-webkit-inner-spin-button {
 /* Toast Success Variant */
 .hh-event-toast-item.hh-success { border-right-color: #10b981; }
 .hh-event-toast-item.hh-success .hh-event-icon { background: #e6f9f1; color: #10b981; }
+
+.swal2-styled.swal2-confirm {
+    box-shadow: 0 4px 15px rgba(255, 118, 117, 0.4) !important;
+    font-weight: 600 !important;
+}
+
+.swal2-styled.swal2-cancel {
+    color: #636e72 !important;
+    font-weight: 500 !important;
+}
+
+/* Approve Button (Green/Teal) */
+.btn-action-approve {
+    background: #e6f7f4;
+    color: #00b894;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-action-approve:hover {
+    background: #00b894;
+    color: white;
+}
+
+/* Decline Button (Soft Red) */
+.btn-action-decline {
+    background: #fff5f5;
+    color: #ff7675;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-action-decline:hover {
+    background: #ff7675;
+    color: white;
+}
+
+/* Pending Badge Style */
+.badge.pending {
+    background: #fff9db;
+    color: #f59f00;
+}
